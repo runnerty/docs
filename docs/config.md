@@ -12,9 +12,9 @@ With the `-c` param it is possible to indicate a different path.
 
 ```shell
 runnerty -c /path/config.json
-````
+```
 
-In the config.json file is set the configuration of the different triggers, executors, notifiers and global values (params, paths, files, etc.) which are going to be used on the processes:
+The `config.json` file contains the configuration for the different triggers, executors, notifiers and global values (params, paths, files, etc.) which are going to be used on the processes:
 
 ```json
 {
@@ -47,24 +47,24 @@ In the config.json file is set the configuration of the different triggers, exec
 
 ## Triggers
 
-The triggers are plugins which provoked the execution of a chain.
+Triggers are plugins which cause the execution of a chain.
 
 The most common case is the schedule trigger which allows us to execute a chain with a periodicity like CRON.
 
 Another example is the file watcher trigger. This trigger let us to execute a chain based on the events defined over a directory or file.
-Have a look at: [triggers](triggers.md)
+Have a look at: [triggers](triggers.md).
 
 ## Servers
 
-Servers allow us to abstract ourselves of the endpoints implementation in a trigger development. Runnerty will set the servers indicated in the config file. It will take care about the routing and will serve one property for the triggers (on_request). In this property it will receive the requests of the endpoint. Moreover it allows customization of the response, also the status code and the possibility so send an object.
+Servers allow us to abstract ourselves of the endpoints implementation in a trigger development. Runnerty will set the servers indicated in the config file. It will take care about the routing and will serve one property for the triggers (`on_request`). In this property it will receive the requests of the endpoint. Moreover it allows customization of the response, also the status code and the possibility to send an object.
 
-Have a look at: [triggers](triggers.md)
+Have a look at: [triggers](triggers.md).
 
 ## Executors
 
-The executors are plugins which enclose functionalities. This plugins allows Runnerty execute processes, data bases operations, use external services, etc. This is a list of the official available [here](plugins.md)
+Executors are plugins which enclose functionalities. These plugins allow Runnerty to execute processes, data bases operations, use external services, etc. There is a list of the official available [here](../plugins/).
 
-In the config.json file are defined all the executors that are going to be used in the whole plan.
+The `config.json` is used to define all the executors that are going to be used in the whole plan.
 
 This is an example of the configuration of two executors (shell and mysql):
 
@@ -90,9 +90,9 @@ This is an example of the configuration of two executors (shell and mysql):
 
 ## Notifiers
 
-The Notifiers are plugins which allows Runnerty to notificate events that happend in the chain and processes to different services and channels. This is a list of the official available [Plugins]
+Notifiers are plugins which allows Runnerty to notificate events that happen in the chain and processes to different services and channels. This is a list of the official available [plugins](../plugins/).
 
-In the config.json file are defined all the notifiers that are going to be used in the whole plan.
+The `config.json` file contains all the notifiers that are going to be used in the whole plan.
 
 This is an example of the configuration of two notifiers (mail and telegram):
 
@@ -120,7 +120,7 @@ This is an example of the configuration of two notifiers (mail and telegram):
 }
 ```
 
-## Global values
+## Global Values
 
 It is possible to define values that can be used in the chains an process (paths, files, data, …):
 
@@ -143,9 +143,9 @@ It is possible to define values that can be used in the chains an process (paths
 }
 ```
 
-These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [link]
+These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [Global values](../values/#global-values).
 
-## Cripted passwords
+## Encrypted Passwords
 
 Runnerty offers the possibility to encrypt passwords so it is not necessary to put passwords on the config.json file.
 
@@ -153,9 +153,9 @@ Runnerty offers the possibility to encrypt passwords so it is not necessary to p
 runnerty -p master_cryptor_password -e password_to_encrypt
 ```
 
-Note that master_cryptor_password is the personal password needed to decrypt the passwords.
+Note that `master_cryptor_password` is the personal password needed to decrypt the passwords.
 
-This will return the crypted password. Now, in the config.json you can use the crypted paswords with the property crypted_password (Runnerty will decrypt the crypted password in memory and send it to the executors):
+This will return the encrypted password. Now, in the config.json you can use the encrypted passwords with the property `crypted_password` (Runnerty will decrypt the encrypted password in memory and send it to the executors):
 
 ```json
 {
