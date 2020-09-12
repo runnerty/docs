@@ -19,7 +19,6 @@ This is the list of the official plugins availables.
 - [AWS-S3](https://www.npmjs.com/package/@runnerty/executor-s3)
 - [AWS-EC2](https://www.npmjs.com/package/@runnerty/executor-ec2)
 - [Wait](https://www.npmjs.com/package/@runnerty/executor-wait)
-- [PDF](https://www.npmjs.com/package/@runnerty/executor-pdf)
 - [SCP](https://www.npmjs.com/package/@runnerty/executor-scp)
 - [ICONV](https://www.npmjs.com/package/@runnerty/executor-iconv)
 - [HTTP](https://www.npmjs.com/package/@runnerty/executor-http)
@@ -29,6 +28,9 @@ This is the list of the official plugins availables.
 - [XML/JSON Parser](https://www.npmjs.com/package/@runnerty/executor-parse-xml-json)
 - [Twitter](https://www.npmjs.com/package/@runnerty/executor-twitter)
 - [Puppeteer](https://github.com/runnerty/executor-puppeteer-export)
+- [Puppeteer wrapper to export html to PDF/image with ejs template support](https://github.com/runnerty/executor-puppeteer-export)
+- [JSON2CSV](https://github.com/runnerty/executor-json2csv)
+- [Image processing](https://github.com/runnerty/executor-image)
 
 ## Notifiers
 

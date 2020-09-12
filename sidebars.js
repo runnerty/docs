@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    "Getting Started": ["config", "plan", "chain", "usage"],
+    "Getting Started": ["setup", "setup-create-project", "config", "plan", "chain", "usage"],
     API: [
       "process",
       "dependencies",
@@ -11,6 +11,6 @@ module.exports = {
       "triggers",
       "notifiers",
     ],
-    Others: ["webservice", "plugins", "doc1"],
+    Others: ["webservice", "plugins"],
   },
 };
