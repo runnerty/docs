@@ -191,7 +191,7 @@ Notice that this values can be also past from the API.
 
 This values cames from the output of an iterable chain. An iterable chain is an awesome feature of runnerty that allows you to be execute a chain for each object in the array previously returned by another chain.
 
-You can know for more information about iterable chains in the chains [here](chains.md#Iterable-chains).
+You can know for more information about iterable chains in the chains [here](chain.md#Iterable-chains).
 
 ```json
 {

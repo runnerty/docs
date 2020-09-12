@@ -31,7 +31,7 @@ This is an example of a basic chain with one process:
 }
 ```
 
-Runnerty has a default unattended point of view for chains and processes managment. This means that unless you specify a modification propetie for a process or chain it will try to run the next process or the chain until the end. More details below in the action on failed chain section [here](chains.md#Actions-for-a-chain-when-a-process-fails).
+Runnerty has a default unattended point of view for chains and processes managment. This means that unless you specify a modification propetie for a process or chain it will try to run the next process or the chain until the end. More details below in the action on failed chain section [here](chain.md#Actions-for-a-chain-when-a-process-fails).
 
 ### Identification
 

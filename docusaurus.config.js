@@ -36,25 +36,25 @@ module.exports = {
           title: "Docs",
           items: [
             {
-              label: "APIs",
+              label: "Getting Started",
               to: "docs/",
             },
             {
-              label: "Second Doc",
-              to: "docs/doc2/",
+              label: "API",
+              to: "docs/process",
             },
+            {
+              label: "Others",
+              to: "docs/webservice",
+            }
           ],
         },
         {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              label: "Slack",
+              href: "https://join.slack.com/t/runnerty/shared_invite/enQtMTgxNDQ2NTk2NTk3LTg5Y2JjNzBlMTU3OGY5NDYxYjRiMmQ1Y2ZjNDVjMDk2NmM1MzNhZDYyOGZjOWZhNjFjZDE4MDYxODg0NGJkY2I",
             },
             {
               label: "Twitter",
@@ -96,13 +96,13 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+            "https://github.com/runnerty/docs/edit/master/website/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+            "https://github.com/runnerty/docs/edit/master/website/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

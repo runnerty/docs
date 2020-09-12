@@ -204,7 +204,7 @@ Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT` T
 
 The`output_iterable property it's used to iterate a chain depending of the output of a process. An iterable chain is a chain that is going to be executed for each object of the array returned by a process. For example, if we have a process which returns an objects array we can execute an iterable chain for each object of the array.
 
-You can have a look at the [chains](chains.md) documentation to see an usage example.
+You can have a look at the [chains](chain.md) documentation to see an usage example.
 
 ## TimeOut (timeout)
 

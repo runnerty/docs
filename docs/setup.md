@@ -1,6 +1,7 @@
 ---
 id: setup
 title: Setting Up
+slug: /
 ---
 
 This tutorial is intended for new users who want detailed instructions on how to build a basic Runnerty project. Let's start!

@@ -89,7 +89,7 @@ This is the configuration of the trigger. We are planing the execution of chain 
 ```
 
 We can overwrite this information from the `triggers` properties of the chain:
-[plan.json (object chains)](chains.md)
+[plan.json (object chains)](chain.md)
 
 ```json
 {

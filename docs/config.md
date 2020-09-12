@@ -62,7 +62,7 @@ Have a look at: [triggers](triggers.md).
 
 ## Executors
 
-Executors are plugins which enclose functionalities. These plugins allow Runnerty to execute processes, data bases operations, use external services, etc. There is a list of the official available [here](../plugins/).
+Executors are plugins which enclose functionalities. These plugins allow Runnerty to execute processes, data bases operations, use external services, etc. There is a list of the official available [here](plugins.md).
 
 The `config.json` is used to define all the executors that are going to be used in the whole plan.
 
@@ -90,7 +90,7 @@ This is an example of the configuration of two executors (shell and mysql):
 
 ## Notifiers
 
-Notifiers are plugins which allows Runnerty to notificate events that happen in the chain and processes to different services and channels. This is a list of the official available [plugins](../plugins/).
+Notifiers are plugins which allows Runnerty to notificate events that happen in the chain and processes to different services and channels. This is a list of the official available [plugins](plugins.md).
 
 The `config.json` file contains all the notifiers that are going to be used in the whole plan.
 
@@ -143,7 +143,7 @@ It is possible to define values that can be used in the chains an process (paths
 }
 ```
 
-These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [Global values](../values/#global-values).
+These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [Global values](values.md/#global-values).
 
 ## Encrypted Passwords
 
