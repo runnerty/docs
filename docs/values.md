@@ -4,7 +4,7 @@ title: Values
 sidebar_label: Values
 ---
 
-Runnerty provides a bunch of different values that can be used in the whole plan of our chains by using the @GV/@GETVALUE function. They can be global or local values. Runnerty will automatically replace this variables with it's value. They are very useful to store params, save output values from the processes, making processes evaluations, etc...
+Runnerty provides a bunch of different values that can be used in the whole plan of our chains by using the `@GV/@GETVALUE` function. They can be global or local values. Runnerty will automatically replace this variables with it's value. They are very useful to store params, save output values from the processes, making processes evaluations, etc...
 
 ## Global Values
 

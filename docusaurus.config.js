@@ -11,17 +11,12 @@ module.exports = {
     navbar: {
       title: "Runnerty",
       logo: {
+        href: "https://runnerty.io",
         alt: "Runnerty",
         src: "img/logo.png",
+        target: "_self",
       },
       items: [
-        {
-          to: "docs/",
-          activeBasePath: "docs",
-          label: "Docs",
-          position: "left",
-        },
-        { to: "blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/runnerty",
           label: "GitHub",
@@ -37,16 +32,16 @@ module.exports = {
           items: [
             {
               label: "Getting Started",
-              to: "docs/",
+              to: "/",
             },
             {
               label: "API",
-              to: "docs/process",
+              to: "/process",
             },
             {
               label: "Others",
-              to: "docs/webservice",
-            }
+              to: "/webservice",
+            },
           ],
         },
         {
@@ -54,7 +49,8 @@ module.exports = {
           items: [
             {
               label: "Slack",
-              href: "https://join.slack.com/t/runnerty/shared_invite/enQtMTgxNDQ2NTk2NTk3LTg5Y2JjNzBlMTU3OGY5NDYxYjRiMmQ1Y2ZjNDVjMDk2NmM1MzNhZDYyOGZjOWZhNjFjZDE4MDYxODg0NGJkY2I",
+              href:
+                "https://join.slack.com/t/runnerty/shared_invite/enQtMTgxNDQ2NTk2NTk3LTg5Y2JjNzBlMTU3OGY5NDYxYjRiMmQ1Y2ZjNDVjMDk2NmM1MzNhZDYyOGZjOWZhNjFjZDE4MDYxODg0NGJkY2I",
             },
             {
               label: "Twitter",
@@ -65,10 +61,6 @@ module.exports = {
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "blog",
-            },
             {
               label: "GitHub",
               href: "https://github.com/runnerty",
@@ -95,14 +87,8 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/runnerty/docs/edit/master/website/",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/runnerty/docs/edit/master/website/blog/",
+          editUrl: "https://github.com/runnerty/docs/edit/master/",
+          routeBasePath: "/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

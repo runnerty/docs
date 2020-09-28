@@ -1,6 +1,6 @@
 ---
 id: setup-create-project
-title: Create a New Project
+title: Create a project
 ---
 
 We will use [runnerty-cli](https://github.com/runnerty/runnerty-cli) to create our first project.
@@ -10,12 +10,15 @@ We will use [runnerty-cli](https://github.com/runnerty/runnerty-cli) to create o
 ```sh
 npx runnerty-cli new my-first-runnerty-project
 ```
+
 :::note
 if desired, we can also install `runnerty-cli`
+
 > npm i -g runnerty-cli
-:::
+> :::
 
 The following contents will be created in your current directory.
+
 ```sh
 └── my-first-runnerty-project
     ├── config.json
@@ -32,7 +35,9 @@ This workflow executes an `echo` command every minute leaving the response in a 
 ## Details of the example project
 
 ### `package.json`
+
 We find this dependencies:
+
 ```json
 {
   "dependencies": {
@@ -42,6 +47,7 @@ We find this dependencies:
   }
 }
 ```
+
 - [`trigger-schedule`](https://github.com/runnerty/trigger-schedule/blob/master/README.md): Trigger for planned executions using expressions CRON [(more about triggers)](triggers.md).
 - [`executor-shell`](https://github.com/runnerty/executor-shell/blob/master/README.md): Executor shell launches a command in a new process and we can pass that command any arguments [(more about executors)](executors.md).
 - [`notifier-console`](https://github.com/runnerty/notifier-console/blob/master/README.md): Notifier used to monitor the events that the chain [(more about chains)](chain.md).
@@ -50,9 +56,10 @@ We find this dependencies:
 You can find more plugins available [here](plugins.md).
 :::
 
-
 ### `config.json`
+
 We find this:
+
 ```json
 {
   "triggers": [
@@ -75,10 +82,12 @@ We find this:
   ]
 }
 ```
+
 Three sections to include triggers, executors, and notifiers. Each plugin is assigned an identifier (id), type, which identifies the plugin and its configuration.
 
 :::note
 Example of a plugin with configuration.
+
 ```json
 {
   "executors": [
@@ -94,12 +103,15 @@ Example of a plugin with configuration.
   ]
 }
 ```
+
 :::
 
 [Learn more about config](config.md).
 
 ### `plan.json`
+
 We find this:
+
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/plan-2.6.json",
@@ -113,14 +125,17 @@ We find this:
           "schedule_interval": "*/1 * * * *" // It´s use CRON expression "At every minute"
         }
       ],
-      "notifications": { // Notifications of this chain
-        "on_start": [ // Start event
+      "notifications": {
+        // Notifications of this chain
+        "on_start": [
+          // Start event
           {
             "id": "console_default", // It´s use the console plugin that we previously configured
             "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(CHAIN_ID)" // It´s use the co
           }
         ],
-        "on_end": [ // End event
+        "on_end": [
+          // End event
           {
             "id": "console_default",
             "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
@@ -135,7 +150,8 @@ We find this:
             "id": "shell_default", // It´s use the executor plugin that we previously configured
             "command": "echo Runnerty: hello world!"
           },
-          "output": [ // Output configuration to files of process
+          "output": [
+            // Output configuration to files of process
             {
               "file_name": "./test.log",
               "write": [
@@ -145,7 +161,8 @@ We find this:
               "maxsize": "10mb"
             }
           ],
-          "notifications": { // We could set up process notifications
+          "notifications": {
+            // We could set up process notifications
             "on_start": [],
             "on_fail": [],
             "on_retry": [],
@@ -157,7 +174,9 @@ We find this:
   ]
 }
 ```
+
 This is the hierarchy of a plan:
+
 ```sh
 chains
 ├── chain
@@ -170,7 +189,9 @@ chains
         └── ...
 └── ...
 ```
+
 For this case, we have a single chain with a single process:
+
 ```sh
 chains
 └── CHAIN_ONE
@@ -180,6 +201,7 @@ chains
 
 :::note
 It is likely that if you do a real project with Runnerty you will need to split the plan into several documents. This is possible by making a document for each chain and indicating in `chains`/`chain_path` the document path of the chain.
+
 ```json
 
 {
@@ -189,7 +211,7 @@ It is likely that if you do a real project with Runnerty you will need to split 
   ]
 }
 ```
-:::
 
+:::
 
 [Learn more about chains](chain.md) and [about plans](plan.md).
