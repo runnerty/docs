@@ -145,30 +145,38 @@ It is possible to define values that can be used in the chains an process (paths
 
 These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [Global values](values.md/#global-values).
 
-## Encrypted Passwords
+## RunnertyIO Platform connection
 
-Runnerty offers the possibility to encrypt passwords so it is not necessary to put passwords on the config.json file.
+[RunnertyIO](https://app.runnerty.io/) offers a platform to manage your runnerty projects, visualize your chains and processes in real time and much more.
 
-```
-runnerty -p master_cryptor_password -e password_to_encrypt
-```
+#### Access [RunnertyIO Platform](https://app.runnerty.io/) and create your project:
 
-Note that `master_cryptor_password` is the personal password needed to decrypt the passwords.
+![](./assets/runnerty-io-new-project.png)
 
-This will return the encrypted password. Now, in the config.json you can use the encrypted passwords with the property `crypted_password` (Runnerty will decrypt the encrypted password in memory and send it to the executors):
+Get your project's API Key:
+
+![](./assets/runnerty-io-api-key.png)
+
+Enter the API Key in the configuration file of your runnerty project `config.json`:
 
 ```json
 {
-  "executors": [
-    {
-      "id": "mysql_default",
-      "type": "@runnerty/executor-mysql",
-      "user": "mysqlusr",
-      "crypted_password": "ABDEFE1234..",
-      "database": "MYDB",
-      "host": "myhost.com",
-      "port": "3306"
+  "general": {
+    "runnerty.io": {
+      "apikey": "YOUR_APIKEY_HERE!"
     }
-  ]
+  }
 }
 ```
+
+In the next start of your project you will be able to visualize and control your processes and chains from RunnertyIO Platform.
+
+#### Other parameters
+
+| Parameter     | Default                  | Description                                                               |
+| :------------ | :----------------------- | :------------------------------------------------------------------------ |
+| disable       | false                    | disable RunnertyIO connection                                             |
+| host          | ws-telemetry.runnerty.io | RunnertyIO enpoint                                                        |
+| healthChecker | true                     | enables health signal communication                                       |
+| remoteControl | true                     | enable remote control from runnertyio platform                            |
+| debug         | false                    | enables the debug mode of the communication module (for development only) |

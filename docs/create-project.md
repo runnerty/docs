@@ -14,8 +14,11 @@ npx runnerty-cli new my-first-runnerty-project
 :::note
 if desired, we can also install `runnerty-cli`
 
-> npm i -g runnerty-cli
-> :::
+```sh
+npm i -g runnerty-cli
+```
+
+:::
 
 The following contents will be created in your current directory.
 

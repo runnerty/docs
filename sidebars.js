@@ -7,7 +7,7 @@ module.exports = {
       "plan",
       "chain",
       "process",
-      "usage",
+      "CLI",
     ],
     API: [
       "triggers",

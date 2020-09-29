@@ -79,6 +79,7 @@ module.exports = {
         lightIcon: "💡",
       },
     },
+    sidebarCollapsible: true,
   },
   presets: [
     [
@@ -96,4 +97,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: ["@docusaurus/plugin-ideal-image"],
 };

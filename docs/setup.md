@@ -4,7 +4,7 @@ title: Setting Up
 slug: /
 ---
 
-This tutorial is intended for new users who want detailed instructions on how to build a basic Runnerty project. Let's start!
+This tutorial is intended for new users who want detailed instructions on how to build a basic Runnerty project. 🚀 Let's start!
 
 ## Pre-requisites
 
@@ -59,4 +59,4 @@ runnerty -v
 Runnerty 2.*.*
 ```
 
-[Here you have more information about the use of runnerty in the terminal](usage.md)
+[Here you have more information about the use of runnerty in the terminal](CLI.md)
