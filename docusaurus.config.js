@@ -22,6 +22,11 @@ module.exports = {
           label: "GitHub",
           position: "right",
         },
+        {
+          href: "https://medium.com/runnerty",
+          label: "Blog",
+          position: "left"
+        }
       ],
     },
     footer: {
@@ -80,6 +85,7 @@ module.exports = {
       },
     },
     sidebarCollapsible: true,
+    image: 'img/runnerty-twitter.jpg',
   },
   presets: [
     [
