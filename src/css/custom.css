@@ -23,3 +23,11 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.footer__item {
+  height: 48px;
+}
+
+.footer__link-item {
+  line-height: 4;
+}
