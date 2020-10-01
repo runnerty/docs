@@ -180,3 +180,13 @@ In the next start of your project you will be able to visualize and control your
 | healthChecker | true                     | enables health signal communication                                       |
 | remoteControl | true                     | enable remote control from runnertyio platform                            |
 | debug         | false                    | enables the debug mode of the communication module (for development only) |
+
+## Other general configuration parameters
+
+| Parameter     | Default               | Description                                                   |
+| :------------ | :-------------------- | :------------------------------------------------------------ |
+| planFilePath  | plan.json             | path to plan file                                             |
+| modulesPath   | ./ (config file path) | path containing the node_modules directory with the plugins   |
+| executorsPath | modulesPath value     | path containing the node_modules directory with the executors |
+| notifiersPath | modulesPath value     | path containing the node_modules directory with the notifiers |
+| triggersPath  | modulesPath value     | path containing the node_modules directory with the triggers  |
