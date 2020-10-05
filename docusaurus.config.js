@@ -8,6 +8,9 @@ module.exports = {
   organizationName: "runnerty", // Usually your GitHub org/user name.
   projectName: "runnerty", // Usually your repo name.
   themeConfig: {
+    googleAnalytics: {
+      trackingID: "UA-61344582-9",
+    },
     navbar: {
       title: "Runnerty",
       logo: {
@@ -25,8 +28,8 @@ module.exports = {
         {
           href: "https://medium.com/runnerty",
           label: "Blog",
-          position: "left"
-        }
+          position: "left",
+        },
       ],
     },
     footer: {
@@ -85,7 +88,7 @@ module.exports = {
       },
     },
     sidebarCollapsible: true,
-    image: 'img/runnerty-twitter.jpg',
+    image: "img/runnerty-twitter.jpg",
   },
   presets: [
     [
