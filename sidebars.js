@@ -2,12 +2,15 @@ module.exports = {
   someSidebar: {
     "Getting Started": [
       "setup",
-      "setup-create-project",
+      {"Guides": [
+        "setup-create-project",
+        "guide-notifiers"
+      ]},
       "config",
       "plan",
       "chain",
       "process",
-      "CLI",
+      "CLI",  
     ],
     API: [
       "triggers",

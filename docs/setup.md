@@ -6,7 +6,7 @@ slug: /
 
 This tutorial is intended for new users who want detailed instructions on how to build a basic Runnerty project. 🚀 Let's start!
 
-## Pre-requisites
+## Requirements
 
 ### Git
 
@@ -37,7 +37,7 @@ You should see a version larger than Node 12.
 
 ```sh
 node -v
-v12.18.3
+v12.19.0
 ```
 
 > Runnerty v2 minimum supported Node.js version is Node 12, but more recent versions will work as well.

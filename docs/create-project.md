@@ -26,7 +26,7 @@ The following contents will be created in your current directory.
 └── my-first-runnerty-project
     ├── config.json
     ├── plan.json
-    └── package.lock
+    └── package.json
 ```
 
 2. Run `npm start`.
@@ -44,7 +44,7 @@ We find this dependencies:
 ```json
 {
   "dependencies": {
-    "@runnerty/executor-shell": "^1.0.5",
+    "@runnerty/executor-shell": "^2.0.0",
     "@runnerty/notifier-console": "^1.0.0",
     "@runnerty/trigger-schedule": "2.0.0"
   }
@@ -156,9 +156,9 @@ We find this:
           "output": [
             // Output configuration to files of process
             {
-              "file_name": "./test.log",
+              "file_name": "./@GETVALUE(PROCESS_ID).log",
               "write": [
-                "EXECUTION @GETVALUE(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GETVALUE(PROCESS_EXEC_MSG_OUTPUT)"
+                "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
               ],
               "concat": true,
               "maxsize": "10mb"
