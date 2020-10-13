@@ -14,7 +14,7 @@ module.exports = {
     algolia: {
       apiKey: '3f523a91af20eba7de89ec3e57e228de',
       indexName: 'runnerty',
-      __searchParameters: {facetFilters: ["type:$TYPE", "version:$VERSION"]},
+      searchParameters: {facetFilters: ["type:$TYPE", "version:$VERSION"]},
     },
     navbar: {
       title: "Runnerty",
