@@ -86,6 +86,41 @@ In this example we are using our shell_default executor, the configuration for t
 
 With the `id` field we are indicating the executor that we are going tov use. The rest of the fields are params for the executor. Know more about the executors and their usage in [here](executors.md). You can also chekc the [config](config.md) documentation to know how to configure them.
 
+## Retries
+With runnerty we can configure a process to retry in case of error.
+We only have to indicate the number of `retries` for the process and optionally the delay (`retry_delay`) between retries.
+
+It is also possible to avoid the notifications `on_fail` of the failed executions previous to the last attempt.
+We can indicate that only the last fail `notificate_only_last_fail` is notified.
+
+Example:
+```json
+{
+  "processes": [
+    {
+      "id": "PROCESS_SAMPLE",
+      "name": "Sample process with retries",
+      "exec": {
+        "id": "shell_default",
+        "command": "node myprocess.js",
+        "retries": 2,
+        "retry_delay": "1s",
+        "notificate_only_last_fail": true,
+        "...": "..."
+      }
+    }
+  ]
+}
+```
+In this example after the first execution failure, it will be retry up to 2 times with 1 second delays.
+And the error will only be reported in case the last attempt fails.
+
+We also have the possibility to implement specific notifications for retries in the `on_retry` event.
+
+The number of retries for a process can be obtained from `PROCESS_RETRIES_COUNT` with the `@GETVALUES` function, to know more about values [here](values.md).
+
+
+
 ## Notifications
 
 Runnerty also provides a notification system for your workflows. With the notifications property you can have access to the different states of the process: `"on_start", "on_fail", "on_retry", "on_end" and "on_queue""` and use them to send notifications.
@@ -136,8 +171,9 @@ This is an example of usage of notifications in a process. In this case, we are 
   }
 }
 ```
-
-> Note that in the example it is used the global value PROCESS_ID, this value will have the id of the process. Know more about [global_values].
+:::note
+In the example it is used the global value `PROCESS_ID`, this value will have the id of the process. Know more about [global_values].
+:::
 
 There is an official list of the available notifiers [here](plugins.md).
 
