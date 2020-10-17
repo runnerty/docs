@@ -123,7 +123,7 @@ The number of retries for a process can be obtained from `PROCESS_RETRIES_COUNT`
 
 ## Notifications
 
-Runnerty also provides a notification system for your workflows. With the notifications property you can have access to the different states of the process: `"on_start", "on_fail", "on_retry", "on_end" and "on_queue""` and use them to send notifications.
+Runnerty also provides a notification system for your workflows. With the notifications property you can have access to the different states of the process: `"on_start", "on_fail", "on_retry", "on_end" and "on_queue"` and use them to send notifications.
 
 For this task, Runnerty uses **notifiers**, know more about them [here](notifiers.md).
 
@@ -141,38 +141,38 @@ This is an example of usage of notifications in a process. In this case, we are 
     "on_start": [
       {
         "id": "telegram_default",
-        "message": "THE PROCESS @GV(PROCESS_ID)HAS STARTED"
+        "message": "THE PROCESS @GV(PROCESS_ID) HAS STARTED"
       }
     ],
     "on_fail": [
       {
         "id": "telegram_default",
-        "message": "THE PROCESS @GV(PROCESS_ID)HAS FAILED"
+        "message": "THE PROCESS @GV(PROCESS_ID) HAS FAILED"
       }
     ],
     "on_end": [
       {
         "id": "telegram_default",
-        "message": "THE PROCESS @GV(PROCESS_ID)HAS FINISHED"
+        "message": "THE PROCESS @GV(PROCESS_ID) HAS FINISHED"
       }
     ],
     "on_queue": [
       {
         "id": "telegram_default",
-        "message": "THE PROCESS @GV(PROCESS_ID)HAS QUEUE"
+        "message": "THE PROCESS @GV(PROCESS_ID) HAS QUEUE"
       }
     ],
     "on_timeout": [
       {
         "id": "telegram_default",
-        "message": "THE PROCESS @GV(PROCESS_ID)HAS TIMEOUT"
+        "message": "THE PROCESS @GV(PROCESS_ID) HAS TIMEOUT"
       }
     ]
   }
 }
 ```
 :::note
-In the example it is used the global value `PROCESS_ID`, this value will have the id of the process. Know more about [global_values].
+In the example it is used the value `PROCESS_ID`, this value will have the id of the process. [Know more about](values).
 :::
 
 There is an official list of the available notifiers [here](plugins.md).
