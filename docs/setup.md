@@ -8,30 +8,7 @@ This tutorial is intended for new users who want detailed instructions on how to
 
 ## Requirements
 
-### Git
-
-Git is a version control system for tracking changes in source code during software development and it can help you synchronize and version files between your local system and your online repository. Git for Windows includes Git Bash, a terminal application. If not already installed, see [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
 ### Node.js
-
-Node.js is an environment that can run JavaScript code outside of a web browser and is used to write and run server-side JavaScript apps. Node.js installation includes `npm`, the package manager that allows you to install NPM modules from your terminal.
-
-1. Open Terminal on a Mac, Linux, or Unix system. Open Git Bash on a Windows system.
-1. If you have `brew` on your OS, run the following command to install Node.
-
-```sh
-brew install node
-```
-
-Alternatively, you can download an installer from the [Node.js homepage](https://nodejs.org/en/).
-
-#### Check your Node.js installation
-
-Check that you have the minimum required version installed by running the following command:
-
-```sh
-node -v
-```
 
 You should see a version larger than Node 12.
 
