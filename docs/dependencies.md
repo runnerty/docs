@@ -69,9 +69,11 @@ In this example process E will start only if process A or B fails and process C 
     "$and": [
       {
         "$or": [{ "$fail": "PROCESS_A" }, { "$fail": "PROCESS_B" }]
+      },
+      {
+        "$and": [{ "$end": "PROCESS_C" }, { "$end": "PROCESS_D" }]
       }
-    ],
-    "$and": [{ "$end": "PROCESS_C" }, { "$end": "PROCESS_D" }]
+    ]
   }
 }
 ```
