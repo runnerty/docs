@@ -1,6 +1,6 @@
 ---
 id: guide-notifiers
-title: Monitoring with notifiers
+title: 2. Monitoring with notifiers
 ---
 
 This guide explains __how to plan and monitor__ the execution of a shell command.
@@ -65,32 +65,38 @@ npx runnerty-cli templates
 #### 2. Include the notifiers in the events of our process `PROCESS_ONE` in the `plan.json` file:
 
 ```json
-"notifications": {
-  "on_start": [
+"processes": [
     {
-      "id": "console_default",
-      "message": "START PROCESS @GV(PROCESS_ID)"
+      "id": "PROCESS_ONE",
+      //...
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "START PROCESS @GV(PROCESS_ID)"
+          }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "Error: @GV(PROCESS_ID) \n Error: @GV(PROCESS_EXEC_ERR_OUTPUT)",
+            "mode": "error"
+          },
+          {
+            "id": "mail_error",
+            "subject": "Error @GV(PROCESS_ID) of the chain @GV(CHAIN_ID)",
+            "message": "Cmd. executed:<br> @GV(PROCESS_EXEC_COMMAND_EXECUTED) <br>Error:<br> @GV(PROCESS_EXEC_ERR_OUTPUT)"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "END PROCESS @GV(PROCESS_ID). OUTPUT: @GV(PROCESS_EXEC_MSG_OUTPUT)"
+          }
+        ]
+      }
     }
-  ],
-  "on_fail": [
-    {
-      "id": "console_default",
-      "message": "Error: @GV(PROCESS_ID) \n Error: @GV(PROCESS_EXEC_ERR_OUTPUT)",
-      "mode": "error"
-    },
-    {
-      "id": "mail_error",
-      "subject": "Error @GV(PROCESS_ID) of the chain @GV(CHAIN_ID)",
-      "message": "Cmd. executed:<br> @GV(PROCESS_EXEC_COMMAND_EXECUTED) <br>Error:<br> @GV(PROCESS_EXEC_ERR_OUTPUT)"
-    }
-  ],
-  "on_end": [
-    {
-      "id": "console_default",
-      "message": "END PROCESS @GV(PROCESS_ID). OUTPUT: @GV(PROCESS_EXEC_MSG_OUTPUT)"
-    }
-  ]
-}
+]
 ```
 
 #### 3. Let's try

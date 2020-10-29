@@ -1,6 +1,6 @@
 ---
 id: setup-create-project
-title: Create a project
+title: 1. Create a project
 ---
 
 We will use [runnerty-cli](https://github.com/runnerty/runnerty-cli) to create our first project.
@@ -117,7 +117,7 @@ We find this:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/plan-2.6.json",
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan.json",
   "chains": [
     {
       "id": "CHAIN_ONE", // Chain ID
@@ -210,7 +210,7 @@ It is likely that if you do a real project with Runnerty you will need to split 
 {
   "chains": [
     { "chain_path": "chains/chain_sample.json" },
-    ...
+    //...
   ]
 }
 ```
@@ -218,3 +218,8 @@ It is likely that if you do a real project with Runnerty you will need to split 
 :::
 
 [Learn more about chains](chain.md) and [about plans](plan.md).
+
+:::note
+In the examples shown here, a couple of functions (`@GV` and `@GETDATE`) from Runnerty's interpreter are used.
+Learn more about the available functions [here.](functions.md)
+:::

@@ -2,9 +2,11 @@ module.exports = {
   someSidebar: {
     "Getting Started": [
       "setup",
-      {"Guides": [
+      {"Tutorial": [
         "setup-create-project",
-        "guide-notifiers"
+        "guide-notifiers",
+        "guide-dependencies",
+        "defaults-processes"
       ]},
       "config",
       "plan",

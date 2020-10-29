@@ -53,7 +53,9 @@ Dependencies of two processes:
 }
 ```
 
-Note than we can simplify this action just by adding `"depends_process": ["PROCESS_A","PROCESS_B"]`
+:::tip TIP
+We can simplify this action just by adding `"depends_process": ["PROCESS_A","PROCESS_B"]`
+:::
 
 ### Complex dependencies:
 
@@ -84,7 +86,7 @@ With Runnerty we can also establish dependencies of an evaluation using values o
 
 ### Evaluators
 
-The structure of the evaluator is {"value 1"; "\$condition": "value 2"}.
+The structure of the evaluator is `{"value 1": {"$condition": "value 2"}}.`
 Of course in these values you can make use of all the [functions](functions.md).
 These are the evaluators you can use:
 
@@ -107,7 +109,7 @@ These are some examples of how to use evaluators in the dependencies of a proces
   "id": "PROCESS_B",
   "name": "Second process of the chain",
   "depends_process": {"@GV(V1)": {"$eq": "GO!"}},
-  [...]
+  //...
 }
 ```
 
@@ -121,7 +123,7 @@ These are some examples of how to use evaluators in the dependencies of a proces
         {"42": {"$gte": "1"}}
       ]
     }
-  [...]
+  //...
 }
 ```
 
@@ -135,7 +137,7 @@ These are some examples of how to use evaluators in the dependencies of a proces
         {"$true": "@INCLUDES(@GV(PROC_A_OUTPUT_DATE), @GETDATE('YYYY-MM-DD'))"}
       ]
     }
-  [...]
+  //...
 }
 ```
 
