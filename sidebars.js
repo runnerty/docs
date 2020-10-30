@@ -7,14 +7,13 @@ module.exports = {
         "guide-notifiers",
         "guide-dependencies",
         "defaults-processes"
-      ]},
+      ]}
+    ],
+    API: [
       "config",
       "plan",
       "chain",
       "process",
-      "CLI",  
-    ],
-    API: [
       "triggers",
       "executors",
       "notifiers",
@@ -23,6 +22,6 @@ module.exports = {
       "functions",
       "queues",
     ],
-    Others: ["webservice", "plugins"],
+    Others: ["CLI", "webservice", "plugins"],
   },
 };

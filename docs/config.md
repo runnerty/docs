@@ -10,7 +10,7 @@ The general configuration and params of the workflows is set in the config.json 
 
 With the `-c` param it is possible to indicate a different path.
 
-```shell
+```bash
 runnerty -c /path/config.json
 ```
 
@@ -66,9 +66,9 @@ Executors are plugins which enclose functionalities. These plugins allow Runnert
 
 The `config.json` is used to define all the executors that are going to be used in the whole plan.
 
-This is an example of the configuration of two executors (shell and mysql):
+This is an example of the configuration of two executors (`shell` and `mysql`):
 
-```json
+```json {4,5,8,9}
 {
   "executors": [
     {
@@ -94,9 +94,9 @@ Notifiers are plugins which allows Runnerty to notificate events that happen in 
 
 The `config.json` file contains all the notifiers that are going to be used in the whole plan.
 
-This is an example of the configuration of two notifiers (mail and telegram):
+This is an example of the configuration of two notifiers (`mail` and `telegram`):
 
-```json
+```json {4,5,10,11}
 {
   "notifiers": [
     {
@@ -124,7 +124,7 @@ This is an example of the configuration of two notifiers (mail and telegram):
 
 It is possible to define values that can be used in the chains an process (paths, files, data, …):
 
-```json
+```json {4}
 {
   "executors": [{ "...": "..." }],
   "notifiers": [{ "...": "..." }],
@@ -145,11 +145,11 @@ It is possible to define values that can be used in the chains an process (paths
 
 These values can be used in the whole plan (chains and proccess) referencing them. Runnerty has also some default values. Have a look at: [Global values](values.md/#global-values).
 
-## RunnertyIO Platform connection
+## Runnerty Platform connection
 
-[RunnertyIO](https://app.runnerty.io/) offers a platform to manage your runnerty projects, visualize your chains and processes in real time and much more.
+[Runnerty Platform](https://app.runnerty.io/) offers a platform to manage your runnerty projects, visualize your chains and processes in real time and much more.
 
-#### Access [RunnertyIO Platform](https://app.runnerty.io/) and create your project:
+#### Access [Runnerty Platform](https://app.runnerty.io/) and create your project:
 
 ![](./assets/runnerty-io-new-project.png)
 
@@ -157,9 +157,7 @@ Get your project's API Key:
 
 ![](./assets/runnerty-io-api-key.png)
 
-Enter the API Key in the configuration file of your runnerty project `config.json`:
-
-```json
+```json {4} title="Enter the API Key in the configuration file of your runnerty project (config.json)"
 {
   "general": {
     "runnerty.io": {
@@ -169,16 +167,16 @@ Enter the API Key in the configuration file of your runnerty project `config.jso
 }
 ```
 
-In the next start of your project you will be able to visualize and control your processes and chains from RunnertyIO Platform.
+In the next start of your project you will be able to visualize and control your processes and chains from Runnerty Platform.
 
-#### Other parameters
+#### Parameters
 
 | Parameter     | Default                  | Description                                                               |
 | :------------ | :----------------------- | :------------------------------------------------------------------------ |
-| disable       | false                    | disable RunnertyIO connection                                             |
-| host          | ws-telemetry.runnerty.io | RunnertyIO enpoint                                                        |
+| disable       | false                    | disable Runnerty Platform connection                                      |
+| host          | ws-telemetry.runnerty.io | Runnerty Platform enpoint                                                 |
 | healthChecker | true                     | enables health signal communication                                       |
-| remoteControl | true                     | enable remote control from runnertyio platform                            |
+| remoteControl | true                     | enable remote control from Runnerty platform                              |
 | debug         | false                    | enables the debug mode of the communication module (for development only) |
 
 ## Other general configuration parameters

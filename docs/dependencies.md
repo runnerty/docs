@@ -14,12 +14,12 @@ We can set up a dependencie to other process end state using `"$end"` and `"$fai
 
 In the example below `PROCESS_B` will start when `PROCESS_A` ends:
 
-```json
+```json {4}
 {
   "id": "PROCESS_B",
   "name": "Second process of the chain",
   "depends_process": { "$end": "PROCESS_A" },
-  "...": "..."
+  //...
 }
 ```
 
@@ -27,12 +27,12 @@ Note than we can simplify this action just by adding `"depends_process": ["PROCE
 
 In this example `PROCESS_B` will start if `PROCESS_A` fails:
 
-```json
+```json {4}
 {
   "id": "PROCESS_B",
   "name": "Second process of the chain",
   "depends_process": { "$fail": "PROCESS_A" },
-  "...": "..."
+  //...
 }
 ```
 
@@ -42,14 +42,14 @@ It is possible to add operators to the dependencies if we need to evaluate more 
 
 Dependencies of two processes:
 
-```json
+```json {4-6}
 {
   "id": "PROCESS_C",
   "name": "Second process of the chain",
   "depends_process": {
     "$and": [{ "$end": "PROCESS_A" }, { "$end": "PROCESS_B" }]
   },
-  "...": "..."
+  //...
 }
 ```
 
@@ -61,9 +61,9 @@ We can simplify this action just by adding `"depends_process": ["PROCESS_A","PRO
 
 Using operatios Runnerty offers the possibility to add complex dependencies between our processes.
 
-In this example process E will start only if process A or B fails and process C and D end:
+In this example process *E* will start only if process *A* or *B* fails and process *C* and *D* end:
 
-```json
+```json {4-13}
 {
   "id": "PROCESS_E",
   "name": "Second process of the chain",
@@ -141,7 +141,7 @@ These are some examples of how to use evaluators in the dependencies of a proces
 }
 ```
 
-Moreover, we can use the conditions however we want in the `"depends_process"` property and create complex evaluations:
+Moreover, we can use the conditions however we want in the `depends_process` property and create complex evaluations:
 
 ```json
 {

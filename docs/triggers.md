@@ -49,9 +49,9 @@ The configuration properties are set in the [config.json](config.md). They are t
 
 The `id` is the name given for the trigger configuration. Note that we could have all the differents configuratios that we want for the same executor. The `type` is the name of the trigger module.
 
-In the processes are set the variable properties (params) for the executor. This is an example of the usage of the @runnerty/trigger-schedule in a process
+In the processes are set the variable properties (params) for the executor. This is an example of the usage of the `@runnerty/trigger-schedule` in a process
 
-```json
+```json {6}
 {
   "id": "CHAIN_ONE",
   "name": "Chain one sample",
@@ -63,7 +63,7 @@ In the processes are set the variable properties (params) for the executor. This
       "schedule_interval": "*/1 * * * *"
     }
   ],
-  "...": "..."
+  //...
 }
 ```
 
@@ -122,9 +122,9 @@ Calendars dir:
 
 ```
 runnerty
-  |-- calendars
-    |-- weekends.ics
-    |-- laboral_days.ics
+  └── calendars/
+    └── weekends.ics
+    └── laboral_days.ics
 ```
 
 Calendars can be used for both, enabling or disabling execution dates through the **enable** and **disable** properties, so it can be specified, for example, to only execute a chain on laboral days, excluding weekends, like in the sample below:
@@ -142,11 +142,11 @@ Calendars can be used for both, enabling or disabling execution dates through th
 
 ## Servers
 
-Servers allow us to forget about the endpoints implementation in the triggers development. Runnerty will pull up the web servers indicted in the config file and will also manage the routing. It will make available the trigger's property "on_request". This will receive the requests to it's endpoint. Additionally, It allows us to customize the response either sending the status code and the response object.
+Servers allow us to forget about the endpoints implementation in the triggers development. Runnerty will pull up the web servers indicted in the config file and will also manage the routing. It will make available the trigger's property `on_request`. This will receive the requests to it's endpoint. Additionally, It allows us to customize the response either sending the status code and the response object.
 
 ### Configuration
 
-```json
+```json {3-9}
 {
   "general": {
     "servers": [
@@ -168,7 +168,7 @@ Servers allow us to forget about the endpoints implementation in the triggers de
 
 ### You can use two different authentication strategies, basic auth or API Key.
 
-Basic Auth (standard):
+#### Basic Auth (standard):
 
 ```json
 {
@@ -188,7 +188,8 @@ Basic Auth (standard):
 }
 ```
 
-API Key. You can send your API-Key in the endpoint call using the `api_key` query parameter or the `x-api-key` header.
+#### API KEY
+You can send your API-Key in the endpoint call using the `api_key` query parameter or the `x-api-key` header.
 
 ```json
 {
@@ -226,25 +227,25 @@ API Key. You can send your API-Key in the endpoint call using the `api_key` quer
 
 ### Usage
 
-Both the values that arrive by "query" and those that arrive in "body" will be available in the chain (via customValues).
+Both the values that arrive by `query` and those that arrive in `body` will be available in the chain (via customValues).
 So if for example we make a "post" like this:
 
-```
+```bash
 curl -X POST -H "Content-Type: application/json" -d '{"MY_VALUE_ONE":"ONE","MY_VALUE_TWO":"2"}' http://localhost:8080/my_endpoint/test
 ```
 
-We can make use of the values through the "get values" function:
+We can make use of the values through the `get values` function:
 
-```
- @GV(MY_VALUE_ONE) / @GV(MY_VALUE_TWO) / @GV(my_query_value)
+```js
+ @GV(my_value_one) / @GV(my_value_two) / @GV(my_query_value)
 ```
 
 Examples of `api-key` authentication:
 
-```
+```bash
 curl -X POST -H "Content-Type: application/json" -H "x-api-key: _API_KEY_SAMPLE_" http://localhost:8080/my_endpoint/test
 ```
 
-```
+```bash
 curl -X POST -H 'Content-Type: application/json' 'localhost:8080/my_endpoint/test?api_key=_API_KEY_SAMPLE_'
 ```

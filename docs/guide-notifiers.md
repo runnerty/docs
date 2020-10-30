@@ -21,7 +21,7 @@ In addition, a log file will be created that will record a summary at the end of
 
 #### 1. The first step will be to add the email notifier to our project.
 From the route of our project we execute:
-```sh
+```bash npm2yarn
 npm i @runnerty/notifier-mail --save
 ```
 To configure it edit `config.json` and include this in `notifiers`:
@@ -56,7 +56,7 @@ To configure it edit `config.json` and include this in `notifiers`:
 :::caution Important
 The mail pluging requires a template for sending emails.
 To start you can add a test template to your project from runnerty-cli:
-```sh
+```bash npm2yarn
 npx runnerty-cli templates
 ```
 :::
@@ -102,28 +102,27 @@ npx runnerty-cli templates
 #### 3. Let's try
 
 Run
-```sh
+```bash npm2yarn
 npm start
 ```
 
 In the next minute the string will be executed returning through the terminal the notifications that we have configured.
 
 #### 4. __Force the error__ in the process to check that your notification mail is working correctly.
-You can force the error by running an unknown command for the system:
-```json
+
+```json title="You can force the error by running an unknown command for the system"
 "exec": {
   "id": "shell_default",
   "command": "unknown_cmd"
 }
 ```
 And run:
-```sh
+```bash npm2yarn
 npm start
 ```
 
 :::tip TIP
-You can force the execution of a chain without waiting for its trigger.
-```sh
+```bash npm2yarn title="You can force the execution of a chain without waiting for its trigger"
 runnerty -c config.json -p plan.json -f CHAIN_ONE --end
 ```
 :::

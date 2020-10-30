@@ -32,7 +32,7 @@ In the chain:
   "name": "Name of the sample chain",
   "queue": "queue_sample",
   "priority": 10,
-  "...": "..."
+  //...
 }
 ```
 
@@ -46,7 +46,7 @@ In a process:
       "name": "Example process",
       "queue": "queue_sample",
       "priority": 5,
-      "...": "..."
+      //...
     }
   ]
 }

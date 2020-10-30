@@ -135,7 +135,7 @@ In this example we can see a process that in the notification use some of the pr
 
 The output_share is a property of the process. This feature allows to share information returned by the process so it is available in the rest of the chain.
 
-```json
+```json {10-16}
 {
   "processes": [
     {

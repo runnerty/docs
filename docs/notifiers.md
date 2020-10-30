@@ -83,7 +83,7 @@ In the processes are set the variable properties (params) of the notifier. This 
 Runnerty matchs the `id` property from the plan with the [config.json](config.md) one to identify the notifier to run. the `message` field is the variable property that may change in every process.
 
 :::important
-It is important to notice that it is possible to overwrite some configuration properties IN THE processes. For example: if we want to change the token and chat_id of the notification depending of the event:
+It is important to notice that it is possible to overwrite some configuration properties IN THE processes. For example: if we want to change the token and *chat_id* of the notification depending of the *event*:
 :::
 
 ```json
@@ -113,4 +113,6 @@ It is important to notice that it is possible to overwrite some configuration pr
 }
 ```
 
-> Note that when the process ends with fail it will overwrite the `token` and `chat_id` properties of the [config.json](config.md) and it will send the message to a different chat.
+:::note
+When the process ends with fail it will overwrite the `token` and `chat_id` properties of the [config.json](config.md) and it will send the message to a different chat.
+:::

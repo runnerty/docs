@@ -143,28 +143,6 @@ Gets a process of a chain
 - Sample (url)
   http://sample_host.com/api/process/CHAIN_SAMPLE/PROCESS_ONE
 
-## Kill a chain's process
-
-Kills a process of a chain
-
-### POST [/process/kill]
-
-- Sample (url)
-  http://sample_host.com/api/process/kill
-
-- Body parameters
-  - chainId (chain ID)
-  - uniqueId (chain uId or execId)
-  - processId (process ID)
-- Sample (body)
-
-```json
-{
-  "chainId": "CHAIN_ONE",
-  "processId": "PROCESS_ONE"
-}
-```
-
 ## CORS Configuation
 
 CORS API configuration parameters:

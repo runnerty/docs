@@ -7,14 +7,14 @@ We will use [runnerty-cli](https://github.com/runnerty/runnerty-cli) to create o
 
 1. Let's create the project, execute this command in your terminal.
 
-```sh
+```bash npm2yarn
 npx runnerty-cli new my-first-runnerty-project
 ```
 
 :::note
 if desired, we can also install `runnerty-cli`
 
-```sh
+```bash npm2yarn
 npm i -g runnerty-cli
 ```
 
@@ -23,7 +23,7 @@ npm i -g runnerty-cli
 The following contents will be created in your current directory.
 
 ```sh
-└── my-first-runnerty-project
+└── my-first-runnerty-project/
     ├── config.json
     ├── plan.json
     └── package.json
@@ -88,10 +88,7 @@ We find this:
 
 Three sections to include triggers, executors, and notifiers. Each plugin is assigned an identifier (id), type, which identifies the plugin and its configuration.
 
-:::note
-Example of a plugin with configuration.
-
-```json
+```json title="Example of a plugin with configuration"
 {
   "executors": [
     {
@@ -107,15 +104,11 @@ Example of a plugin with configuration.
 }
 ```
 
-:::
-
 [Learn more about config](config.md).
 
 ### `plan.json`
 
-We find this:
-
-```json
+```json title="We find this"
 {
   "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan.json",
   "chains": [
@@ -178,9 +171,7 @@ We find this:
 }
 ```
 
-This is the hierarchy of a plan:
-
-```sh
+```sh title="This is the hierarchy of a plan"
 chains
 ├── chain
     └── processes
@@ -206,7 +197,6 @@ chains
 It is likely that if you do a real project with Runnerty you will need to split the plan into several documents. This is possible by making a document for each chain and indicating in `chains`/`chain_path` the document path of the chain.
 
 ```json
-
 {
   "chains": [
     { "chain_path": "chains/chain_sample.json" },

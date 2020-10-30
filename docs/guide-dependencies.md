@@ -13,7 +13,7 @@ We will start with something very simple, we will create a second process `PROCE
 
 We will do this by including the `depends_process` property in the process `PROCESS_TWO`:
 
-```json
+```json {9}
 "processes": [
     {
       "id": "PROCESS_ONE",

@@ -6,9 +6,8 @@ sidebar_label: Plan
 
 The chain or chains that are going to be executed are defined in the plan.json file or in its defect we can indicate in the plan object of the configuration within the general section.
 
-config.json:
 
-```json
+```json title="config.json"
 {
   "general": {
     "...": "...",
@@ -24,9 +23,9 @@ config.json:
 }
 ```
 
-It is possible to load a chain from an external file using "chain_path".
+It is possible to load a chain from an external file using `chain_path`.
 
-```json
+```json {3-5}
 {
   "chains": [
     { "chain_path": "/var/runnerty/chains/my-chain-one.json" },
@@ -38,7 +37,7 @@ It is possible to load a chain from an external file using "chain_path".
 
 Or directly as an object of the `chains` array:
 
-```json
+```json {3-6}
 {
   "chains": [
     {
@@ -49,7 +48,7 @@ Or directly as an object of the `chains` array:
 }
 ```
 
-Runnerty will try to get the plan.json file in the actual path but it is possible to indicate a plan.json file in the config.json:
+Runnerty will try to get the `plan.json` file in the actual path but it is possible to indicate a `plan.json` file in the `config.json`:
 
 ```json
 {
@@ -65,7 +64,7 @@ A plan is formed by one or more chains. A chain is a set of processes with it’
 
 This is the basic structure of a plan with chain with one process:
 
-```json
+```json {2,8}
 {
   "chains": [
     {

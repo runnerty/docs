@@ -8,6 +8,9 @@ module.exports = {
   organizationName: "runnerty", // Usually your GitHub org/user name.
   projectName: "runnerty", // Usually your repo name.
   themeConfig: {
+    prism: {
+      additionalLanguages: ['powershell'],
+    },
     googleAnalytics: {
       trackingID: "UA-61344582-9",
     },

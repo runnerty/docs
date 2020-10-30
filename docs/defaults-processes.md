@@ -8,7 +8,7 @@ For this we can use the property `defaults_processes` of the chain.
 
 ### Let's apply it to our example
 
-```json
+```json {6}
 {
   "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan.json",
   "chains": [

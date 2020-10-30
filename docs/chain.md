@@ -147,7 +147,7 @@ The following example shows how to set up notifications for the different states
 }
 ```
 :::note
-The usage of the _global value and function `@GV(CHAIN_ID)` on the previous example. This value will be replaced with the chain's `id`. Learn more about global values [here](config.md) and more about functions [here](functions.md)
+The usage of the _global value_ and function `@GV(CHAIN_ID)` on the previous example. This value will be replaced with the chain's `id`. Learn more about global values [here](config.md) and more about functions [here](functions.md)
 :::
 
 Learn more about notifiers and how to configure them [here](notifiers.md).
@@ -177,17 +177,18 @@ Learn more about _processes_ and how to configure them [here](process.md).
 
 It is possible to define what action (abort or retry) to perform at the chain level in case a process fails. The number of `retries` and delay (`retry_delay`) settings will be set at the chain level.
 
-```json
+```json {4,5,10}
 {
   "id": "CHAIN_SAMPLE",
   "name": "Chain with retries",
   "retries": 1,
   "retry_delay": "1 min",
+  //...
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "...": "...",
       "chain_action_on_fail": "retry"
+      //...
     }
   ]
 }
@@ -195,14 +196,14 @@ It is possible to define what action (abort or retry) to perform at the chain le
 
 Abort the chain if the process fails (this action ends the chain's flow so no other processes will be executed). It is not necessary to indicate, is the default value:
 
-```json
+```json {6}
 {
-  "...": "...",
+  //...
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "...": "...",
-      "chain_action_on_fail": "abort"
+      "chain_action_on_fail": "abort",
+      //...
     }
   ]
 }
@@ -212,14 +213,14 @@ Also you can skip this option (`chain_action_on_fail`) so though any process fai
 
 Also, it is possible to indicate in the process that the execution continues even though an error occurs:
 
-```json
+```json {6}
 {
-  "...": "...",
+  //...
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "...": "...",
-      "chain_action_on_fail": "continue"
+      "chain_action_on_fail": "continue",
+      //...
     }
   ]
 }
@@ -228,15 +229,15 @@ Also, it is possible to indicate in the process that the execution continues eve
 This will cause the process error to be reported but the string continue and end without error.
 Additionally, it could force the chain to end with an error indicating that the process error is taken into account for the final state of the chain:
 
-```json
+```json {6,7}
 {
-  "...": "...",
+  //...
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "...": "...",
       "chain_action_on_fail": "continue",
       "ignore_in_final_chain_status": false
+      //...
     }
   ]
 }
@@ -292,7 +293,7 @@ In the following example we are going to send an email to every user of the USER
 
 First, we have the chain `get-users-email.json` with a process which selects all the users's email:
 
-```json
+```json {18}
 {
   "id": "GET-USERS-EMAIL",
   "name": "It gets all the user's names to send an email",
@@ -320,7 +321,7 @@ Then, we assign the returned resultset by the MySQL SELECT query as an object ar
 
 Now we are going to define the iterable chain _"send-mail-to-user"_
 
-```json
+```json {6-18}
 {
   "id": "SEND-MAIL-TO-USERS",
   "name": "it sends an email to the users returned",
@@ -357,7 +358,7 @@ Now we are going to define the iterable chain _"send-mail-to-user"_
 
 Here we can see some properties that the chain needs to iterate. First of all we have the dependencies on the **depends_chains** property. 
 :::important
-An iterable chain **must depends** on the process from the _"mother chain"_ whom it iterates.
+An iterable chain **must depends** on the process from the _"parent chain"_ whom it iterates.
 :::
 
 ```json
@@ -398,7 +399,7 @@ With the **input** property we can assign the properties of each object returned
       "name": "name"
     }
   ],
-  "...": "..."
+  //...
 }
 ```
 
@@ -409,11 +410,11 @@ Now, we can use these values anywhere in our iterable chain:
   "processes": [
     {
       "id": "SEND-MAIL",
-      "name": "sends the email to the user",
+      "name": "Sends the email to the user",
       "exec": {
         "id": "mail_default",
         "to": ["@GV(email)"],
-        "message": "Hello :name",
+        "message": "Hello @GV(name)",
         "title": "Message send by Runnerty"
       }
     }
@@ -429,7 +430,7 @@ It is possible to define a default value for all the processes in a chain of `no
 
 For example:
 
-```json
+```json {4-36}
 {
       "id": "CHAIN_SAMPLE",
       "name": "CHAIN_SAMPLE",
@@ -466,7 +467,9 @@ For example:
         ],
         "chain_action_on_fail": "abort"
       },
-      "processes": [...]
+      "processes": [
+        //...
+      ]
 ```
 
 It is also possible to overwrite the default values (`defaults_processes`) in each of the processes.

@@ -72,7 +72,7 @@ Runnerty provides a bunch of different functions that can be used in the whole p
 
 Examples:
 
-```
+```js
 @LENGTH('RUNNERTY') -> 8
 @LOWER(hELLo) -> hello
 @CONCAT('TEXT SAMPLE:',' --> ',@RPAD(@LPAD(@TRIM(@UPPER('  test  ')),8,'X'),10,'Z')) -> TEXT SAMPLE: --> XXXXTESTZZ
@@ -88,7 +88,7 @@ Examples:
 
 Examples:
 
-```
+```js
 @HASH('RUNNERTY','md5','base64') -> wBM7mLwJnIpMlpRBHiLxBw==
 @HASH('RUNNERTY','sha256','hex') -> 5e557b12c62c361fac4f480ba30d7afe1bc9b8a1dd1cd26807fb3f1c7ef0b18d
 @ENCRYPT('RUNNERTY', 'AES256', 'PASSWORD') -> fd9f555099fbb6f25eff05d6c98693af
@@ -116,7 +116,7 @@ Examples:
 | LASTDAY    | `@LASTDAY(STRING_DATE, STRING_INPUT_FORMAT, STRING_OUTPUT_FORMAT, STRING_LANGUAGE, BOOLEAN_UPPER)`                                     | Returns string as specified by a format mask and language with the last day of the input date |
 | DATEFORMAT | `@DATEFORMAT(STRING_DATE, STRING_INPUT_FORMAT, STRING_OUTPUT_FORMAT, STRING_LANGUAGE, STRING_PERIOD, NUMBER_INCREMENT, BOOLEAN_UPPER)` | Returns string as specified by a format mask and language and period of the input date        |
 
-```
+```js
 Format: https://momentjs.com/docs/#/parsing/string-format/
 Language: Use country Abbreviations ('en','es','cn','fr',...) - http://momentjs.com/docs/#/i18n/
 Period: It is posible use a key or shorthand key of a perior: years or y, quarters or Q, months or M, weeks or w, days or d, hours or h, minutes or m, seconds or s, milliseconds or ms
@@ -126,7 +126,7 @@ Uppercase: Boolean to set if output must be returned upper
 
 Examples:
 
-```
+```js
 @GETDATE('MMMM','es','months',2,true) - Add 2 months to current date and output month name upper: 'ENERO'
 @GETDATE('YYYY-MM-DD HH:mm:ss') - Return current date formated like the mask 'YYYY-MM-DD HH:mm:ss': '2018-01-01 23:59:59'
 @LASTDAY('01-01-2020','DD-MM-YYYY','MMMM','es',true)
@@ -146,7 +146,7 @@ Examples:
 
 Examples:
 
-```
+```js
 @PATHPARSE('/etc/runnerty/plan.json', 'NAME') -> plan
 @PATHPARSE('/etc/runnerty/plan.json', 'base') -> plan.json
 @PATHNORMALIZE('/foo/bar//baz/asdf/quux/..')  -> /foo/bar/baz/asdf

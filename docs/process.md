@@ -17,7 +17,7 @@ Each process has two identification fields: `id` and `name`
 `id` is the unique identification string of the process.
 `name` is a description of the process
 
-```json
+```json {4-5}
 {
   "processes": [
     {
@@ -34,14 +34,14 @@ With Runnerty is possible to establish dependencies betwwen processes. Runnerty 
 
 In the example below we can see how `PROCESS_ONE` has a dependcien with `PROCESS_TWO`. This way, `PROCESS_TWO` will only start when `PROCESS_ONE` had finished.
 
-```json
+```json {6}
 {
   "processes": [
     {
       "id": "PROCESS_TWO",
       "name": "Second process of the chain",
       "depends_process": ["PROCESS_ONE"],
-      "...": "..."
+      //...
     }
   ]
 }
@@ -55,7 +55,7 @@ It is highly recommended to have a look at **dependencies** documentation [here]
 
 In the exec property are the fields that identify the executor that is going to be used and the params needed.
 
-```json
+```json {6-10}
 {
   "processes": [
     {
@@ -64,7 +64,7 @@ In the exec property are the fields that identify the executor that is going to 
       "exec": {
         "id": "shell_default",
         "command": "echo 'Hello world'",
-        "...": "..."
+        //...
       }
     }
   ]
@@ -94,7 +94,7 @@ It is also possible to avoid the notifications `on_fail` of the failed execution
 We can indicate that only the last fail `notificate_only_last_fail` is notified.
 
 Example:
-```json
+```json {9-11}
 {
   "processes": [
     {
@@ -106,7 +106,7 @@ Example:
         "retries": 2,
         "retry_delay": "1s",
         "notificate_only_last_fail": true,
-        "...": "..."
+        //...
       }
     }
   ]
@@ -123,7 +123,7 @@ The number of retries for a process can be obtained from `PROCESS_RETRIES_COUNT`
 
 ## Notifications
 
-Runnerty also provides a notification system for your workflows. With the notifications property you can have access to the different states of the process: `"on_start", "on_fail", "on_retry", "on_end" and "on_queue"` and use them to send notifications.
+Runnerty also provides a notification system for your workflows. With the notifications property you can have access to the different states of the process: `on_start`, `on_fail`, `on_retry`, `on_end` and `on_queue` and use them to send notifications.
 
 For this task, Runnerty uses **notifiers**, know more about them [here](notifiers.md).
 
@@ -181,7 +181,7 @@ There is an official list of the available notifiers [here](plugins.md).
 
 Another property of ther processes is that we can redirect the output of a process to a file.
 
-```json
+```json {8-15}
 {
   "id": "PROCESS_ONE",
   "name": "First process of the chain",
@@ -192,7 +192,7 @@ Another property of ther processes is that we can redirect the output of a proce
   "output": [
     {
       "file_name": "/var/log/runnerty/general.log",
-      "write": ["EXECUTION *@GV(PROCESS_ID)* @GETDATE(DD-MM-YY HH:mm:ss)\n"],
+      "write": ["EXECUTION *@GV(PROCESS_ID)* @GETDATE(DD-MM-YY HH:mm:ss)"],
       "concat": true,
       "maxsize": "1mb"
     }
@@ -210,12 +210,12 @@ The output_share property it is used to define values from the output of a proce
 
 For example:
 
-```json
+```json {10-16}
 {
   "processes": [
     {
       "id": "GET-USER-EMAIL",
-      "name": "it get an user email",
+      "name": "It get an user email",
       "exec": {
         "id": "mysql_default",
         "command": "SELECT email FROM USERS WHERE ID = 1"
@@ -232,9 +232,9 @@ For example:
 }
 ```
 
-In this example we are getting the email of an user from the database using the @runnerty/executor_mysql and assigning it to a value. This way we can use the `:USER_EMAIL` value anywhere of the chain.
+In this example we are getting the email of an user from the database using the `@runnerty/executor_mysql` and assigning it to a value. This way we can use the `@GV(USER_EMAIL)` value anywhere of the chain.
 
-Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT` This is a global_value that contains the return of the process. Have a look at the [values](values.md) documentation.
+Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT` This is a `global_value` that contains the return of the process. Have a look at the [values](values.md) documentation.
 
 ## OutputIterable (output_iterable)
 
@@ -246,17 +246,17 @@ You can have a look at the [chains](chain.md) documentation to see an usage exam
 
 The timeout property it's used to set the maximun time to wait process ends.
 
-It is possible to establish two different actions, end or error. If the "error" action is indicated, the process will end with a failure and if "end" is indicated the process will end without failure. In both cases the function "kill" of the executor in question will be called.
+It is possible to establish two different actions, end or error. If the `error` action is indicated, the process will end with a failure and if `end` is indicated the process will end without failure. In both cases the function `kill` of the executor in question will be called.
 
-In addition to the action must indicate the mandatory property "delay" indicating the maximum timeout in milliseconds.
+In addition to the action must indicate the mandatory property `delay` indicating the maximum timeout in milliseconds.
 
 For example:
 
-```json
+```json {5-8}
 {
   "processes": [
     {
-      "...": "...",
+      //...
       "timeout": {
         "action": "error",
         "delay": "3s"
@@ -304,4 +304,4 @@ Delay property understands the following strings:
 
 The space after the number is optional so you can also write `1ms` instead of `1 ms`. In addition to that it also accepts numbers and strings which only includes numbers and we assume that these are always in milliseconds.
 
-_From: [Millisecond module]_(https://github.com/unshiftio/millisecond)
+From: [Millisecond module](https://github.com/unshiftio/millisecond)
