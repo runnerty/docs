@@ -206,7 +206,7 @@ With the maxsize option we indicate Runnerty the maximun size that the log's fil
 
 ## Output Share (output_share)
 
-The output_share property it is used to define values from the output of a process. Theses values area availables for the rest of the procesess of the chain.
+The `output_share` property it is used to define values from the output of a process. Theses values area availables for the rest of the procesess of the chain.
 
 For example:
 
@@ -234,9 +234,9 @@ For example:
 
 In this example we are getting the email of an user from the database using the `@runnerty/executor_mysql` and assigning it to a value. This way we can use the `@GV(USER_EMAIL)` value anywhere of the chain.
 
-Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT` This is a `global_value` that contains the return of the process. Have a look at the [values](values.md) documentation.
+Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT`. This is a value that contains the return of the process. Have a look at the [values](values.md) documentation.
 
-## OutputIterable (output_iterable)
+## Output Iterable (output_iterable)
 
 The`output_iterable property it's used to iterate a chain depending of the output of a process. An iterable chain is a chain that is going to be executed for each object of the array returned by a process. For example, if we have a process which returns an objects array we can execute an iterable chain for each object of the array.
 

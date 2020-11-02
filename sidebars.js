@@ -6,7 +6,8 @@ module.exports = {
         "setup-create-project",
         "guide-notifiers",
         "guide-dependencies",
-        "defaults-processes"
+        "defaults-processes",
+        "share-process-data"
       ]}
     ],
     API: [
