@@ -31,8 +31,10 @@ We will do this by including the `depends_process` property in the process `PROC
     },
 ]
 ```
-
- Learn more about dependencies [here](dependencies.md)
+:::tip
+We can also concatenate checks of the states of the processes and any other available variable.
+Learn more about dependencies [here.](dependencies.md)
+:::
 
 ### Summary
 
