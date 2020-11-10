@@ -14,7 +14,7 @@ You should see a version larger than Node 12.
 
 ```bash
 node -v
-v12.19.0
+v14.15.0
 ```
 
 > Runnerty v2 minimum supported Node.js version is Node 12, but more recent versions will work as well.
