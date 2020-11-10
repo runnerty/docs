@@ -17,13 +17,13 @@ In the [config.json](config.md) file of the project we are going to write the co
   "notifiers": [
     {
       "id": "telegram_default",
-      "type": "@runnerty/notifier-telegram",
+      "type": "@runnerty-notifier-telegram",
       "token": "MyTokenId",
       "chat_id": "MyChatId"
     },
     {
       "id": "mail_default",
-      "type": "@runnerty/notifier-mail",
+      "type": "@runnerty-notifier-mail",
       "disable": false,
       "from": "Runnerty Notifier <my@sender.com>",
       "transport": "smtp://my%mailsender.com:pass@smtp.host.com/?pool=true",
@@ -49,7 +49,7 @@ The configuration properties are set in the [config.json](config.md). They are t
   "notifiers": [
     {
       "id": "telegram_default",
-      "type": "@runnerty/notifier-telegram",
+      "type": "@runnerty-notifier-telegram",
       "token": "MyTokenId",
       "chat_id": "MyChatId"
     }
