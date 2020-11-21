@@ -522,16 +522,17 @@ For example, in this case the default value of the `on_start` event of `notifica
 
 Estos son los metadatos que podemos indicar a nivel de `chain`.
 
-| Metadata      | Description                                                                                                                                                                                                |
-| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| author        | Author                                                                                                                                                                                                     |
-| team          | Team to which it belongs                                                                                                                                                                                   |
-| criticality   | Criticality level: low, medium or high                                                                                                                                                                     |
-| contacts      | Array of objects with contact data: name, email and phone                                                                                                                                                  |
-| fail_comments | Comment on action in case the chain fails                                                                                                                                                                  |
-| relaunchable  | Indicates if the chain is ready to be relaunched                                                                                                                                                           |
-| input_keys    | Array of strings: indicates which keys are relevant when it comes to distinguishing iterable chains executions. This will be used by the Runnerty IO Platform to make it easier to view chains iterations. |
-| keywords      | Array of strings: list of keywords                                                                                                                                                                         |
+| Metadata          | Description                                                                                                                                                                                                |
+| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| author            | Author                                                                                                                                                                                                     |
+| team              | Team to which it belongs                                                                                                                                                                                   |
+| criticality       | Criticality level: low, medium or high                                                                                                                                                                     |
+| contacts          | Array of objects with contact data: name, email and phone                                                                                                                                                  |
+| fail_comments     | Comment on action in case the chain fails                                                                                                                                                                  |
+| relaunchable      | Indicates if the chain is ready to be relaunched                                                                                                                                                           |
+| input_keys        | Array of strings: indicates which keys are relevant when it comes to distinguishing iterable chains executions. This will be used by the Runnerty IO Platform to make it easier to view chains iterations. |
+| keywords          | Array of strings: list of keywords                                                                                                                                                                         |
+| max_expected_time | Maximum expected time. It will be used in Runnerty IO Platform to alert on chains that exceed it. The value can be specified in string format ("1000 ms", "1 s", "30 min", "1d" ...)                       |
 
 Example:
 
