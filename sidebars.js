@@ -22,6 +22,7 @@ module.exports = {
       "values",
       "functions",
       "queues",
+      "calendars"
     ],
     Others: ["CLI", "webservice", "plugins"],
   },

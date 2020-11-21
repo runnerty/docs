@@ -14,6 +14,7 @@ This is an example of a basic chain with one process:
     {
       "id": "EXAMPLE-CHAIN",
       "name": "Sample chain name",
+      "namespace": "SAMPLES",
       "triggers": [],
       "depends_chains": [],
       "processes": [
@@ -146,6 +147,7 @@ The following example shows how to set up notifications for the different states
   }
 }
 ```
+
 :::note
 The usage of the _global value_ and function `@GV(CHAIN_ID)` on the previous example. This value will be replaced with the chain's `id`. Learn more about global values [here](config.md) and more about functions [here](functions.md)
 :::
@@ -181,6 +183,7 @@ It is possible to define what action (abort or retry) to perform at the chain le
 {
   "id": "CHAIN_SAMPLE",
   "name": "Chain with retries",
+  "namespace": "SAMPLES",
   "retries": 1,
   "retry_delay": "1 min",
   //...
@@ -202,7 +205,7 @@ Abort the chain if the process fails (this action ends the chain's flow so no ot
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "chain_action_on_fail": "abort",
+      "chain_action_on_fail": "abort"
       //...
     }
   ]
@@ -219,7 +222,7 @@ Also, it is possible to indicate in the process that the execution continues eve
   "processes": [
     {
       "id": "SAMPLE-PROCESS",
-      "chain_action_on_fail": "continue",
+      "chain_action_on_fail": "continue"
       //...
     }
   ]
@@ -325,6 +328,7 @@ Now we are going to define the iterable chain _"send-mail-to-user"_
 {
   "id": "SEND-MAIL-TO-USERS",
   "name": "it sends an email to the users returned",
+  "namespace": "SAMPLES",
   "retries": 1,
   "retry_delay": "1 min",
   "depends_chains": {
@@ -356,7 +360,7 @@ Now we are going to define the iterable chain _"send-mail-to-user"_
 }
 ```
 
-Here we can see some properties that the chain needs to iterate. First of all we have the dependencies on the **depends_chains** property. 
+Here we can see some properties that the chain needs to iterate. First of all we have the dependencies on the **depends_chains** property.
 :::important
 An iterable chain **must depends** on the process from the _"parent chain"_ whom it iterates.
 :::
@@ -398,7 +402,7 @@ With the **input** property we can assign the properties of each object returned
     {
       "name": "name"
     }
-  ],
+  ]
   //...
 }
 ```
@@ -512,4 +516,45 @@ For example, in this case the default value of the `on_start` event of `notifica
             ]
           }
         }]
+```
+
+### Metadata
+
+Estos son los metadatos que podemos indicar a nivel de `chain`.
+
+| Metadata      | Description                                                                                                                                                                                                |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| author        | Author                                                                                                                                                                                                     |
+| team          | Team to which it belongs                                                                                                                                                                                   |
+| criticality   | Criticality level: low, medium or high                                                                                                                                                                     |
+| contacts      | Array of objects with contact data: name, email and phone                                                                                                                                                  |
+| fail_comments | Comment on action in case the chain fails                                                                                                                                                                  |
+| relaunchable  | Indicates if the chain is ready to be relaunched                                                                                                                                                           |
+| input_keys    | Array of strings: indicates which keys are relevant when it comes to distinguishing iterable chains executions. This will be used by the Runnerty IO Platform to make it easier to view chains iterations. |
+| keywords      | Array of strings: list of keywords                                                                                                                                                                         |
+
+Example:
+
+```json {5-19}
+{
+  "id": "BACK_TO_THE_FUTURE",
+  "name": "Chain to back to the future",
+  "namespace": "TRAVELS",
+  "meta": {
+    "author": "Marty McFly",
+    "team": "TIMELINES",
+    "criticality": "high",
+    "contacts": [
+      {
+        "name": "Dr. Emmett Lathrop Brown",
+        "email": "doc@backtothefuture.com",
+        "phone": "880000000"
+      }
+    ],
+    "fail_comments": "Check flux capacitor and relaunch!",
+    "relaunchable": true,
+    "keywords": ["TRAVEL", "TIME"]
+  }
+  //...
+}
 ```
