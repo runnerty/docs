@@ -69,6 +69,8 @@ Runnerty provides a bunch of different functions that can be used in the whole p
 | UNESCAPE                          | `@UNESCAPE(STRING)`                                                  | Returns unescaped string (Restoring no SingleStringCharacters or DoubleStringCharacters ECMA)                                     |
 | QUOTE                             | `@QUOTE(STRING,QUOTE_STRING)`                                        | Return quoted string. If QUOTE_STRING is not set, it will be set by default with single quote                                     |
 | JSONSTRINGIFY _(STRINGIFY ALIAS)_ | `@STRINGIFY(OBJECT)`                                                 | Returns the JSON stringified object                                                                                               |
+| HTMLESCAPE                        | `@HTMLESCAPE(STRING_UNESCAPED)`                                      | Returns escaped string for insertion into HTML, replacing "&", "<", ">", '"', and "'" by &amp;, &lt;, &gt;, &quot;, and &#39;     |
+| HTMLUNESCAPE                      | `@HTMLUNESCAPE(STRING_ESCAPED)`                                      | Returns unescaped string for insertion into HTML, replacing &amp;, &lt;, &gt;, &quot;, and &#39; by "'", "<", ">", '"', and "'"   |
 
 Examples:
 
