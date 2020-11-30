@@ -1,6 +1,6 @@
 ---
 id: defaults-processes
-title: 4. Defaults processes
+title: 5. Defaults processes
 ---
 
 In many occasions we repeat the same `output` or `notifications` configurations of our processes and it is ideal to be able to keep them in one place.

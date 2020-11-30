@@ -1,6 +1,6 @@
 ---
 id: guide-dependencies
-title: 3. Process dependencies
+title: 4. Process dependencies
 ---
 
 This guide explains __how to create dependencies between processes__.
