@@ -1,6 +1,6 @@
 ---
 id: guide-notifiers
-title: 2. Monitoring with notifiers
+title: 3. Monitoring with notifiers
 ---
 
 This guide explains __how to plan and monitor__ the execution of a shell command.

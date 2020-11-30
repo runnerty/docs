@@ -31,7 +31,9 @@ The following contents will be created in your current directory.
 
 2. Run `npm start`.
 
-Congratulations, you have just made your first Runnerty project!
+🎉🎉 Congratulations, you have just made your first Runnerty project!
+
+You can know connect to [Runnerty Platform](connect-to-platform).
 
 This workflow executes an `echo` command every minute leaving the response in a log file. The terminal where we run the project is also notified of the beginning and end of the chain.
 
