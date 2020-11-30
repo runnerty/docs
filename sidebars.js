@@ -4,6 +4,7 @@ module.exports = {
       "setup",
       {"Tutorial": [
         "setup-create-project",
+        "connect-to-platform",
         "guide-notifiers",
         "guide-dependencies",
         "defaults-processes",
