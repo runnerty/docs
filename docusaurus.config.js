@@ -9,15 +9,15 @@ module.exports = {
   projectName: "runnerty", // Usually your repo name.
   themeConfig: {
     prism: {
-      additionalLanguages: ['powershell'],
+      additionalLanguages: ["powershell"],
     },
     googleAnalytics: {
       trackingID: "UA-61344582-9",
     },
     algolia: {
-      apiKey: '3f523a91af20eba7de89ec3e57e228de',
-      indexName: 'runnerty',
-      searchParameters: {facetFilters: ["type:content", "version:current"]},
+      apiKey: "3f523a91af20eba7de89ec3e57e228de",
+      indexName: "runnerty",
+      searchParameters: { facetFilters: ["type:content", "version:current"] },
     },
     navbar: {
       title: "Runnerty",
@@ -38,6 +38,10 @@ module.exports = {
           label: "Blog",
           position: "left",
         },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        }
       ],
     },
     footer: {
@@ -107,6 +111,7 @@ module.exports = {
           // Please change this to your repo.
           editUrl: "https://github.com/runnerty/docs/edit/master/",
           routeBasePath: "/",
+          excludeNextVersionDocs: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -114,5 +119,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: ["@docusaurus/plugin-ideal-image"],
+  plugins: ["@docusaurus/plugin-ideal-image"]
 };
