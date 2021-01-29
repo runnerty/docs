@@ -42,7 +42,7 @@ At this point our plan should be similar to this:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan.json",
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/3.0/plan.json",
   "chains": [
     {
       "id": "CHAIN_ONE",
