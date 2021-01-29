@@ -69,6 +69,8 @@ Runnerty provides a bunch of different functions that can be used in the whole p
 | UNESCAPE                          | `@UNESCAPE(STRING)`                                                  | Returns unescaped string (Restoring no SingleStringCharacters or DoubleStringCharacters ECMA)                                     |
 | QUOTE                             | `@QUOTE(STRING,QUOTE_STRING)`                                        | Return quoted string. If QUOTE_STRING is not set, it will be set by default with single quote                                     |
 | JSONSTRINGIFY _(STRINGIFY ALIAS)_ | `@STRINGIFY(OBJECT)`                                                 | Returns the JSON stringified object                                                                                               |
+| HTMLESCAPE                        | `@HTMLESCAPE(STRING_UNESCAPED)`                                      | Returns escaped string for insertion into HTML, replacing "&", "<", ">", '"', and "'" by &amp;, &lt;, &gt;, &quot;, and &#39;     |
+| HTMLUNESCAPE                      | `@HTMLUNESCAPE(STRING_ESCAPED)`                                      | Returns unescaped string for insertion into HTML, replacing &amp;, &lt;, &gt;, &quot;, and &#39; by "'", "<", ">", '"', and "'"   |
 
 Examples:
 
@@ -80,11 +82,17 @@ Examples:
 
 ### Crypto
 
-| Function | Syntax                                                           | Description                                                                                            |
-| :------- | :--------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| HASH     | `@HASH(STRING_TO_HASH, STRING_HASH, STRING_DIGEST)`              | Returns hashed string. HASH: `openssl list-message-digest-algorithms`. DIGEST: `hex, base64 or latin1` |
-| ENCRYPT  | `@ENCRYPT(STRING_TO_ENCRYPT, STRING_ALGORITHM, STRING_PASSWORD)` | Returns encrypt string. HASH: `openssl list-cipher-algorithms`.                                        |
-| DECRYPT  | `@DECRYPT(STRING_TO_DECRYPT, STRING_ALGORITHM, STRING_PASSWORD)` | Returns decrypt string. HASH: `openssl list-cipher-algorithms`.                                        |
+| Function        | Syntax                                                           | Description                                                                                            |
+| :-------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| HASH            | `@HASH(STRING_TO_HASH, STRING_HASH, STRING_DIGEST)`              | Returns hashed string. HASH: `openssl list-message-digest-algorithms`. DIGEST: `hex, base64 or latin1` |
+| ENCRYPT         | `@ENCRYPT(STRING_TO_ENCRYPT, STRING_ALGORITHM, STRING_PASSWORD)` | Returns encrypt string. HASH: `openssl list-cipher-algorithms`.                                        |
+| DECRYPT         | `@DECRYPT(STRING_TO_DECRYPT, STRING_ALGORITHM, STRING_PASSWORD)` | Returns decrypt string. HASH: `openssl list-cipher-algorithms`.                                        |
+| UUID _(UUIDV4)_ | `@UUID()`                                                        | Return a UUID v4                                                                                       |
+| UUIDV1          | `@UUIDV1()`                                                      | Return a UUID v1                                                                                       |
+| UUIDV3          | `@UUIDV3(STRING_NAME, STRING_NAMESPACE_UUID)`                    | Return a UUID v3                                                                                       |
+| UUIDV5          | `@UUIDV5(STRING_NAME, STRING_NAMESPACE_UUID)`                    | Return a UUID v5                                                                                       |
+| UUIDVALIDATE    | `@UUIDVALIDATE(STRING_UUID)`                                     | Return a validation boolean                                                                            |
+| UUIDVERSION     | `@UUIDVERSION(STRING_UUID)`                                      | Return a version namber of UUID                                                                        |
 
 Examples:
 
@@ -93,6 +101,7 @@ Examples:
 @HASH('RUNNERTY','sha256','hex') -> 5e557b12c62c361fac4f480ba30d7afe1bc9b8a1dd1cd26807fb3f1c7ef0b18d
 @ENCRYPT('RUNNERTY', 'AES256', 'PASSWORD') -> fd9f555099fbb6f25eff05d6c98693af
 @DECRYPT('fd9f555099fbb6f25eff05d6c98693af', 'AES256', 'PASSWORD') -> RUNNERTY
+@UUIDVERSION(@UUIDV5('Runnerty!', 'f97b4c8e-2ce1-11eb-adc1-0242ac120002')) -> 5
 ```
 
 ### Evaluation

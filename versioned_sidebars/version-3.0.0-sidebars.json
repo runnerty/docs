@@ -90,6 +90,10 @@
         {
           "type": "doc",
           "id": "version-3.0.0/queues"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.0.0/calendars"
         }
       ]
     },

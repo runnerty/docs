@@ -111,7 +111,7 @@ module.exports = {
           // Please change this to your repo.
           editUrl: "https://github.com/runnerty/docs/edit/master/",
           routeBasePath: "/",
-          excludeNextVersionDocs: true,
+          includeCurrentVersion: false
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

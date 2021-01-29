@@ -4,7 +4,7 @@ title: Calendars
 sidebar_label: Calendars
 ---
 
-In runnerty we can make use of calendar events (ics) to allow or disallow the execution of [triggers](triggers.md).
+In Runnerty we can make use of calendar events (ics) to allow or disallow the execution of [triggers](triggers.md).
 
 ### Configuration
 
