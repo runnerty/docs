@@ -46,9 +46,9 @@ We find this dependencies:
 ```json
 {
   "dependencies": {
-    "@runnerty/executor-shell": "^2.0.0",
-    "@runnerty/notifier-console": "^1.0.0",
-    "@runnerty/trigger-schedule": "2.0.0"
+    "@runnerty/executor-shell": "^3.0.0",
+    "@runnerty/notifier-console": "^3.0.0",
+    "@runnerty/trigger-schedule": "^3.0.0"
   }
 }
 ```

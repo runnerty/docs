@@ -76,9 +76,10 @@ It is possible to define and overwrite global values at chain level, setting a *
 
 ### Dependencies
 
-It is possible to define dependencies with other chains or other chains processes. This means than a chain with dependencies will never execute before their dependencies are resolved.
+You can define dependencies with other chains or other chain processes through the **depends_chains** property.
+This allows us to execute a chain in these cases:
 
-You can define these dependency restrictions through the **depends_chains** property, like in the sample below:
+- When the chain it depends on ends.
 
 ```json
 {
@@ -86,7 +87,17 @@ You can define these dependency restrictions through the **depends_chains** prop
 }
 ```
 
-The chain of the example will not be executed until the chain with _id_ _CHAIN_ONE_ is finished. It is also possible to configure a set of dependencies to one chain's process or more:
+_The chain will be executed when ´CHAIN-ONE´ finishes_
+
+```json
+{
+  "depends_chains": ["CHAIN-ONE", "CHAIN-TWO"]
+}
+```
+
+_The chain will be executed when `CHAIN-ONE` or `CHAIN-TWO` finishes_
+
+- When the process of the chain it depends on is ends. We will also receive in the input of the chain the values that are indicated in the **output_share** of the process. This dependency is similar to the one used in [iterable chains](chain.md#iterable-chains).
 
 ```json
 {
@@ -96,6 +107,26 @@ The chain of the example will not be executed until the chain with _id_ _CHAIN_O
   }
 }
 ```
+
+_The chain will be executed when `PROCESS-ONE` of `CHAIN-ONE` finishes_
+
+This will cause the processes that depend on the process to wait for the completion of the chain or chains dependent on it. Once the process chain is finished, its flow will continue normally.
+It is also possible to make the reference process chain fail if the dependent chain fails, by using the ** fail_on_child_fail ** property (default is false) in the reference process.
+
+```json
+{
+  "processes": [
+    {
+      "id": "PROCESS-ONE",
+      "name": "PROCESS-ONE of CHAIN-ONE",
+      "fail_on_child_fail": true,
+      //"...":"..."
+    }
+]
+```
+:::tip
+If you need to avoid that two chains can be executed at the same time make use of the [queues](queues.md)
+:::
 
 ### Notifications
 

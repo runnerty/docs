@@ -14,7 +14,7 @@ You should see a version larger than Node 12.
 
 ```bash
 node -v
-v14.15.0
+v14.15.4
 ```
 
 > Runnerty v2 minimum supported Node.js version is Node 12, but more recent versions will work as well.
@@ -30,7 +30,7 @@ npm install -g runnerty
 
 ```bash title="You should see a version"
 runnerty -v
-Runnerty 2.*.*
+Runnerty 3.*.*
 ```
 
 [Here you have more information about the use of runnerty in the terminal](CLI.md)
