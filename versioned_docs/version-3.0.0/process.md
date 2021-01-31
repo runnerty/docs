@@ -352,7 +352,7 @@ This would order the output like this:
   {
     "TYPE": "A",
     "LEVEL": 2
-  },
+  }, 
   {
     "TYPE": "B",
     "LEVEL": 3
