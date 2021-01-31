@@ -10,14 +10,14 @@ This tutorial is intended for new users who want detailed instructions on how to
 
 ### Node.js
 
-You should see a version larger than Node 12.
+You should see a version larger than Node 14.
 
 ```bash
 node -v
 v14.15.4
 ```
 
-> Runnerty v2 minimum supported Node.js version is Node 12, but more recent versions will work as well.
+> Runnerty v3 minimum supported Node.js version is Node 14, but more recent versions will work as well.
 
 ### Runnerty (optional)
 
