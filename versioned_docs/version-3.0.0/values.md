@@ -167,7 +167,7 @@ Just like the process values, there are also some values formed with the chain i
 
 ```
 CHAIN_ID                 - Contains the ID of the chain
-CNAIN_NAME               - Contains the name of the chain
+CHAIN_NAME               - Contains the name of the chain
 CHAIN_STARTED_AT         - Contains the date and time when the chain started
 CHAIN_DURATION_SECONDS   - Contains the duration in seconds (when is end).
 CHAIN_DURATION_HUMANIZED - Contains the humanized duration (when is end).

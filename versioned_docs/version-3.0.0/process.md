@@ -40,7 +40,7 @@ In the example below we can see how `PROCESS_ONE` has a dependcien with `PROCESS
     {
       "id": "PROCESS_TWO",
       "name": "Second process of the chain",
-      "depends_process": ["PROCESS_ONE"],
+      "depends_process": ["PROCESS_ONE"]
       //...
     }
   ]
@@ -63,7 +63,7 @@ In the exec property are the fields that identify the executor that is going to 
       "name": "First process of the chain",
       "exec": {
         "id": "shell_default",
-        "command": "echo 'Hello world'",
+        "command": "echo 'Hello world'"
         //...
       }
     }
@@ -87,6 +87,7 @@ In this example we are using our shell_default executor, the configuration for t
 With the `id` field we are indicating the executor that we are going tov use. The rest of the fields are params for the executor. Know more about the executors and their usage in [here](executors.md). You can also chekc the [config](config.md) documentation to know how to configure them.
 
 ## Retries
+
 With runnerty we can configure a process to retry in case of error.
 We only have to indicate the number of `retries` for the process and optionally the delay (`retry_delay`) between retries.
 
@@ -94,6 +95,7 @@ It is also possible to avoid the notifications `on_fail` of the failed execution
 We can indicate that only the last fail `notificate_only_last_fail` is notified.
 
 Example:
+
 ```json {9-11}
 {
   "processes": [
@@ -105,21 +107,20 @@ Example:
         "command": "node myprocess.js",
         "retries": 2,
         "retry_delay": "1s",
-        "notificate_only_last_fail": true,
+        "notificate_only_last_fail": true
         //...
       }
     }
   ]
 }
 ```
+
 In this example after the first execution failure, it will be retry up to 2 times with 1 second delays.
 And the error will only be reported in case the last attempt fails.
 
 We also have the possibility to implement specific notifications for retries in the `on_retry` event.
 
 The number of retries for a process can be obtained from `PROCESS_RETRIES_COUNT` with the `@GETVALUES` function, to know more about values [here](values.md).
-
-
 
 ## Notifications
 
@@ -171,6 +172,7 @@ This is an example of usage of notifications in a process. In this case, we are 
   }
 }
 ```
+
 :::note
 In the example it is used the value `PROCESS_ID`, this value will have the id of the process. [Know more about](values).
 :::
@@ -241,6 +243,126 @@ Note that in this example we are are using the value `PROCESS_EXEC_MSG_OUTPUT`. 
 The`output_iterable property it's used to iterate a chain depending of the output of a process. An iterable chain is a chain that is going to be executed for each object of the array returned by a process. For example, if we have a process which returns an objects array we can execute an iterable chain for each object of the array.
 
 You can have a look at the [chains](chain.md) documentation to see an usage example.
+
+## Output Filter (output_filter)
+
+The **output_filter** property allows us to filter the results that the executor has returned in `PROCESS_EXEC_DATA_OUTPUT`. This can be useful if we want to work with only some of the records of the returned dataset, both for `ouput_iterable` (iterable chains) and for `output_share`.
+
+For example for a given dataset with the following records:
+
+```json
+[
+  {
+    "TYPE": "A",
+    "LEVEL": 1
+  },
+  {
+    "TYPE": "A",
+    "LEVEL": 2
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 1
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 3
+  }
+]
+```
+
+We could apply a filter that would return only those with `LEVEL` greater than `1` and `TYPE` equals `A`:
+
+```json
+{
+  "processes": [
+    {
+      "id": "GET-DATA",
+      //"...":"...",
+      "output_filter": {
+        "$and": [{ "LEVEL": { "$gt": 1 } }, { "TYPE": { "$eq": "A" } }]
+      }
+    }
+  ]
+}
+```
+
+The operation is similar to that of the [complex dependency evaluators](dependencies.md#evaluators) between processes.
+
+The structure of the evaluator is `{"value 1": {"$condition": "value 2"}}`.
+Of course in these values you can make use of all the functions.
+These are the evaluators you can use:
+```
+$eq    - equal. Examples: {"VAL_1": {"$eq": "VAL_2"}}, {"@GV(VAR1)": {"$eq": "@GV(VAR2)"}}
+$ne    - not equal. Example: {"@UPPER(str_sample)": {"$ne": "@GV(VAR2)"}}
+$match - supports regular expressions. Example: {"aBc":{"$match":"/ABC/i"}}
+$gt    - greater than. Example: {"@LENGTH(str_sample)": {"$gt": "@GV(VAR_INT_1)"}}
+$gte   - greater than equal. Example: {2:{"$gte":1}
+$lt    - less than
+$lte   - less than equal
+$in    - determine if a specified value matches any value in a list. Example: {"VAL_1": {"$in": ["A","B"]}}
+$nin   - determine if a specified value does not match any value in a list. Example: {"VAL_1": {"$in": ["A","B"]}}
+```
+
+## Output Order (output_order)
+
+The **output_order** property allows us to ordert the results that the executor has returned in `PROCESS_EXEC_DATA_OUTPUT`. This can be useful if we want to work on an ordered dataset both for `ouput_iterable` (iterable chains) and for `output_share`.
+
+For example for a given dataset with the following records:
+
+```json
+[
+  {
+    "TYPE": "A",
+    "LEVEL": 1
+  },
+  {
+    "TYPE": "A",
+    "LEVEL": 2
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 1
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 3
+  }
+]
+```
+We could apply its ordering like in this example:
+```json
+{
+  "processes": [
+    {
+      "id": "GET-DATA",
+      //"...":"...",
+      "output_order": ["TYPE", "LEVEL desc"]
+    }
+  ]
+}
+```
+This would order the output like this:
+```json
+[
+  {
+    "TYPE": "A",
+    "LEVEL": 2
+  },
+  {
+    "TYPE": "A",
+    "LEVEL": 2
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 3
+  },
+  {
+    "TYPE": "B",
+    "LEVEL": 1
+  }
+]
+```
 
 ## TimeOut (timeout)
 

@@ -98,6 +98,8 @@ $gt    - greater than. Example: {"@LENGTH(str_sample)": {"$gt": "@GV(VAR_INT_1)"
 $gte   - greater than equal. Example: {2:{"$gte":1}
 $lt    - less than
 $lte   - less than equal
+$in    - determine if a specified value matches any value in a list. Example: {"VAL_1": {"$in": ["A","B"]}}
+$nin   - determine if a specified value does not match any value in a list. Example: {"VAL_1": {"$in": ["A","B"]}}
 $true  - its a boolean evaluator. This evaluator has a special structure: {"$true":"value"}. Examples: {"$true":"@INCLUDES(sample,a)"}, {"$true":"@GT(42, @GV(VAL1))"}
 $false - its a boolean evaluator. It works like $true (opposite).
 ```
