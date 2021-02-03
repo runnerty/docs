@@ -551,7 +551,7 @@ For example, in this case the default value of the `on_start` event of `notifica
 
 ### Metadata
 
-Estos son los metadatos que podemos indicar a nivel de `chain`.
+These are the metadata that we can indicate from a `chain`.
 
 | Metadata          | Description                                                                                                                                                                                                |
 | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
