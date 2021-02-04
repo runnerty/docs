@@ -101,10 +101,12 @@ _The chain will be executed when `CHAIN-ONE` or `CHAIN-TWO` finishes_
 
 ```json
 {
-  "depends_chains": {
-    "chain_id": "CHAIN-ONE",
-    "process_id": "PROCESS-ONE"
-  }
+  "depends_chains": [
+    {
+      "chain_id": "CHAIN-ONE",
+      "process_id": "PROCESS-ONE"
+    }
+  ]
 }
 ```
 
@@ -124,6 +126,7 @@ It is also possible to make the reference process chain fail if the dependent ch
     }
 ]
 ```
+
 :::tip
 If you need to avoid that two chains can be executed at the same time make use of the [queues](queues.md)
 :::
