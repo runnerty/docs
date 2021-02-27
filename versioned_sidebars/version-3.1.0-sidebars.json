@@ -1,0 +1,120 @@
+{
+  "version-3.1.0/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-3.1.0/setup"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Tutorial",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-3.1.0/setup-create-project"
+            },
+            {
+              "type": "doc",
+              "id": "version-3.1.0/connect-to-platform"
+            },
+            {
+              "type": "doc",
+              "id": "version-3.1.0/guide-notifiers"
+            },
+            {
+              "type": "doc",
+              "id": "version-3.1.0/guide-dependencies"
+            },
+            {
+              "type": "doc",
+              "id": "version-3.1.0/defaults-processes"
+            },
+            {
+              "type": "doc",
+              "id": "version-3.1.0/share-process-data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "API",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-3.1.0/config"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/plan"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/chain"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/process"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/triggers"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/executors"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/notifiers"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/dependencies"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/values"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/functions"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/queues"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/calendars"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Others",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-3.1.0/CLI"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/webservice"
+        },
+        {
+          "type": "doc",
+          "id": "version-3.1.0/plugins"
+        }
+      ]
+    }
+  ]
+}
