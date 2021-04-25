@@ -61,6 +61,14 @@ runnerty -c /etc/runnerty/config.json -p /user/workdir/other_plan.json -f CHAIN_
 runnerty -c /etc/runnerty/config.json -p /user/workdir/other_plan.json -f CHAIN_ONE --custom_values '{"YYYY":"1986"}' --input_values '[{"KEY_1":"1-1", "KEY_2":"1-2"},{"KEY_1":"2-1", "KEY_2":"2-2"}]' --end
 ```
 
+```bash
+runnerty -f CHAIN_ONE -fd --end
+```
+
+```bash
+runnerty -f CHAIN_ONE -fd -fp PROCESS_ONE -fpd --end
+```
+
 TODO: ADD FPD AND FP SAMPLES
 
 ### New options

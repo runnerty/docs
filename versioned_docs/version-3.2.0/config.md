@@ -120,6 +120,78 @@ This is an example of the configuration of two notifiers (`mail` and `telegram`)
 }
 ```
 
+## Defaults
+
+It allows us to define at the project level, `notifications` and `output` configurations of both chains and processes.
+
+:::note
+The same can be done at the chain level for process defaults with [defaults_processes](defaults-processes.md)
+These values can be overwritten in the properties of the chain itself, in [defaults_processes](defaults-processes.md) or in the properties of a process.
+:::
+
+```json {2,3,4,26,27,48}
+{
+  "defaults": {
+    "chain": {
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') FAIL OF THE CHAIN: @GV(CHAIN_ID)",
+            "mode": "error"
+          }
+        ]
+      }
+    },
+    "process": {
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START: PROCESS @GV(PROCESS_ID)"
+          }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') ERROR: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_ERR_OUTPUT)",
+            "mode": "error"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_MSG_OUTPUT)"
+          }
+        ]
+      },
+      "output": [
+        {
+          "file_name": "@GV(LOGS_PATH)/@GETVALUE(PROCESS_ID).log",
+          "write": [
+            "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
+          ],
+          "concat": true,
+          "maxsize": "10mb"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Global Values
 
 It is possible to define values that can be used in the chains an process (paths, files, data, …):

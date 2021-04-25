@@ -464,7 +464,7 @@ In the example `:email` will be replaced with the user's email and :name will be
 
 ### Default properties for processes
 
-It is possible to define a default value for all the processes in a chain of `notifications`,`output` and `chain_action_on_fail`, depending on the `defaults_processes` property of a chain.
+It is possible to define a default value for all the processes in a chain of `notifications`,`output` and `chain_action_on_fail`, depending on the [defaults_processes](defaults-processes.md) property of a chain.
 
 For example:
 

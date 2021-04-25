@@ -4,6 +4,7 @@ title: 1. Create a project
 ---
 
 1. Install runnerty
+
 ```bash npm2yarn
 npm i -g runnerty
 ```
@@ -19,8 +20,10 @@ The following contents will be created in your current directory.
 ```sh
 └── my-first-runnerty-project/
     ├── config.json
+    ├── package.json
     ├── plan.json
-    └── package.json
+    └── chains/
+        └── chain-one.json
 ```
 
 3. Run `runnerty` or `runnerty run`.
@@ -78,11 +81,86 @@ We find this:
       "id": "console_default",
       "type": "@runnerty-notifier-console"
     }
-  ]
-}
+  ],
+  "global_values": [
+    {
+      "WORKDIR": {
+        "PATH": ".",
+        "BATCH": "batch",
+        "SQL": "sql"
+      }
+    },
+    {
+      "LOGS": {
+        "PATH": "./logs"
+      }
+    }
+  ],
+  "defaults": {
+    "chain": {
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') FAIL OF THE CHAIN: @GV(CHAIN_ID)",
+            "mode": "error"
+          }
+        ]
+      }
+    },
+    "process": {
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START: PROCESS @GV(PROCESS_ID)"
+          }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') ERROR: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_ERR_OUTPUT)",
+            "mode": "error"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_MSG_OUTPUT)"
+          }
+        ]
+      },
+      "output": [
+        {
+          "file_name": "@GV(LOGS_PATH)/@GETVALUE(PROCESS_ID).log",
+          "write": [
+            "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
+          ],
+          "concat": true,
+          "maxsize": "10mb"
+        }
+      ]
+    }
+  }
 ```
+:::note
+In the examples shown here, a couple of functions (`@GV` and `@GETDATE`) from Runnerty's interpreter are used.
+Learn more about the available functions [here.](functions.md)
+:::
 
-Three sections to include triggers, executors, and notifiers. Each plugin is assigned an identifier (id), type, which identifies the plugin and its configuration.
+Let's focus on the three properties that include `triggers`, `executors`, and `notifiers`. Each plugin is assigned an identifier (id), type, which identifies the plugin and its configuration.
 
 ```json title="Example of a plugin with configuration"
 {
@@ -107,78 +185,26 @@ Three sections to include triggers, executors, and notifiers. Each plugin is ass
 ```json title="We find this"
 {
   "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/3.2/plan.json",
-  "chains": [
-    {
-      "id": "CHAIN_ONE", // Chain ID
-      "name": "Chain one sample", // Chain descriptor name
-      "triggers": [
-        {
-          "id": "schedule_default", // It´s use the schedule plugin that we previously configured
-          "schedule_interval": "*/1 * * * *" // It´s use CRON expression "At every minute"
-        }
-      ],
-      "notifications": {
-        // Notifications of this chain
-        "on_start": [
-          // Start event
-          {
-            "id": "console_default", // It´s use the console plugin that we previously configured
-            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(CHAIN_ID)" // It´s use the co
-          }
-        ],
-        "on_end": [
-          // End event
-          {
-            "id": "console_default",
-            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
-          }
-        ]
-      },
-      "processes": [
-        {
-          "id": "PROCESS_ONE", // Process ID
-          "name": "Proccess One", // Process descriptor name
-          "exec": {
-            "id": "shell_default", // It´s use the executor plugin that we previously configured
-            "command": "echo Runnerty: hello world!"
-          },
-          "output": [
-            // Output configuration to files of process
-            {
-              "file_name": "./@GETVALUE(PROCESS_ID).log",
-              "write": [
-                "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
-              ],
-              "concat": true,
-              "maxsize": "10mb"
-            }
-          ],
-          "notifications": {
-            // We could set up process notifications
-            "on_start": [],
-            "on_fail": [],
-            "on_retry": [],
-            "on_end": []
-          }
-        }
-      ]
-    }
-  ]
+  "chains": [{ "chain_path": "./chains/chain-one.json" }]
 }
 ```
 
 ```sh title="This is the hierarchy of a plan"
 chains
 ├── chain
-    └── processes
-        ├── process
-        └── ...
+|   └── processes
+|       ├── process
+|       └── ...
 ├── chain
-    └── processes
-        ├── process
-        └── ...
+|   └── processes
+|       ├── process
+|       └── ...
 └── ...
 ```
+
+:::note
+In the plan we can define the chain itself or instead, for a better organization, we can define the path (chain_path) to a json where to define the chain, as it is done in this guide.
+:::
 
 For this case, we have a single chain with a single process:
 
@@ -189,23 +215,31 @@ chains
         └── PROCESS_ONE
 ```
 
-:::note
-It is likely that if you do a real project with Runnerty you will need to split the plan into several documents. This is possible by making a document for each chain and indicating in `chains`/`chain_path` the document path of the chain.
+### `chain-one.json`
 
 ```json
 {
-  "chains": [
-    { "chain_path": "chains/chain_sample.json" },
-    //...
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/3.2/chain.json",
+  "id": "CHAIN_ONE",
+  "name": "Chain one sample",
+  "triggers": [
+    {
+      "id": "schedule_default",
+      "schedule_interval": "*/1 * * * *"
+    }
+  ],
+  "processes": [
+    {
+      "id": "PROCESS_ONE",
+      "name": "Proccess One",
+      "exec": {
+        "id": "shell_default",
+        "command": "echo hello world!"
+      }
+    }
   ]
 }
 ```
 
-:::
-
 [Learn more about chains](chain.md) and [about plans](plan.md).
 
-:::note
-In the examples shown here, a couple of functions (`@GV` and `@GETDATE`) from Runnerty's interpreter are used.
-Learn more about the available functions [here.](functions.md)
-:::

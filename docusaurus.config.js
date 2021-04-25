@@ -29,8 +29,11 @@ module.exports = {
       },
       items: [
         {
-          href: "https://github.com/runnerty",
-          label: "GitHub",
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
+          label: " ",
           position: "right",
         },
         {
@@ -39,9 +42,10 @@ module.exports = {
           position: "left",
         },
         {
-          type: 'docsVersionDropdown',
-          position: 'right',
-        }
+          href: "https://github.com/runnerty",
+          label: "GitHub",
+          position: "left",
+        },
       ],
     },
     footer: {

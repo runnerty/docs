@@ -71,6 +71,7 @@ For this we can use the property `defaults_processes` of the chain.
 
 :::note
 We can overwrite any property or event defined in `defaults_processes` indicating them in the corresponding process.
+It is also possible to define default values at the project level with the [defaults](config.md#defaults) property in the [config.json](config.md#defaults) file.
 :::
 
 
