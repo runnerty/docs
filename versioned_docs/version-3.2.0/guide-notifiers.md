@@ -6,8 +6,14 @@ title: 3. Monitoring with notifiers
 This guide explains **how to plan and monitor** the execution of a shell command.
 This guide is the continuation of the previous section, if you have not yet completed it, [start here](/setup-create-project).
 We will use two different runnerty notifiers, the [console notifier](https://github.com/runnerty/notifier-console) and the [email notifier](https://github.com/runnerty/notifier-mail). You can see the rest of available notifiers [here](/plugins#notifiers).
-The `console notifier` will display the messages from: - Chain start - Start of process execution - End of process execution - Process execution error - End of chain
-The `email notifier` will only be used for the: - Process execution error
+The `console notifier` will display the messages from:
+	- Chain start
+		- Start of process execution
+		- End of process execution
+		- Process execution error
+	- End of chain
+The `email notifier` will only be used for the:
+	- Process execution error
 
 In addition, a log file will be created that will record a summary at the end of the process.
 
