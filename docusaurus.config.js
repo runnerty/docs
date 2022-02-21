@@ -11,9 +11,6 @@ module.exports = {
     prism: {
       additionalLanguages: ["powershell"],
     },
-    googleAnalytics: {
-      trackingID: "UA-61344582-9",
-    },
     algolia: {
       apiKey: "3f523a91af20eba7de89ec3e57e228de",
       indexName: "runnerty",
@@ -29,10 +26,12 @@ module.exports = {
       },
       items: [
         {
+          href: "#",
           type: 'docsVersionDropdown',
           position: 'right',
         },
         {
+          href: "#",
           label: " ",
           position: "right",
         },
@@ -103,7 +102,6 @@ module.exports = {
         lightIcon: "💡",
       },
     },
-    sidebarCollapsible: true,
     image: "img/runnerty-twitter.jpg",
   },
   presets: [
@@ -120,6 +118,10 @@ module.exports = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        googleAnalytics: {
+          trackingID: "UA-61344582-9",
+        },
+      //  sidebarCollapsible: true,
       },
     ],
   ],

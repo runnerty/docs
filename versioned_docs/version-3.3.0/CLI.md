@@ -45,6 +45,7 @@ If no command is indicated, the `run` command will be executed, this makes versi
 | --config_password                | configPassword |               | Password for remote (url) config file (Basic Auth Password)                                                                             |
 | -n, --namespace                  | namespace      |               | Enable the chains of the indicated namespace. It is possible to set a list of comma separated items                                     |
 | -en, --exclude_namespace         | namespace      |               | Disable the chains of the indicated namespace. It is possible to set a list of comma separated items                                    |
+| --env-file                       | env file path  | ./.env        | Reading environment variables from the path of the specified file                                                                       |
 | -h, --help                       |                |               | display help for command                                                                                                                |
 
 #### Samples
