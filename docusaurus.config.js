@@ -12,7 +12,8 @@ module.exports = {
       additionalLanguages: ["powershell"],
     },
     algolia: {
-      apiKey: "3f523a91af20eba7de89ec3e57e228de",
+      appId: "BH4D9OD16A",
+      apiKey: "56f4bd7124338889eb8c2927a57ff05c",
       indexName: "runnerty",
       searchParameters: { facetFilters: ["type:content", "version:3.2.0"] },
     },
@@ -96,11 +97,7 @@ module.exports = {
     colorMode: {
       defaultMode: "light",
       disableSwitch: false,
-      respectPrefersColorScheme: false,
-      switchConfig: {
-        darkIcon: "🌑",
-        lightIcon: "💡",
-      },
+      respectPrefersColorScheme: false
     },
     image: "img/runnerty-twitter.jpg",
   },
