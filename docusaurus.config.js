@@ -12,8 +12,8 @@ module.exports = {
       additionalLanguages: ["powershell"],
     },
     algolia: {
-      appId: "BH4D9OD16A",
-      apiKey: "56f4bd7124338889eb8c2927a57ff05c",
+      appId: "DEV",
+      apiKey: "DEV",
       indexName: "runnerty",
       searchParameters: { facetFilters: ["type:content", "version:3.2.0"] },
     },
